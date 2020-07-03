@@ -1,0 +1,255 @@
+# Responsive Web Design Certification
+## Basic HTML and HTML5 
+Start:      02/07/2020
+Pomodoros:  5
+Nota: Este documento usa la extension Better Comments
+<!--
+*   :Important 
+!   :Deprecated
+?   :Question
+TODO: todo
+////df
+-->
+
+
+
+
+
+
+### Commands
+
+<!--Comment-->
+
+<!--To add an img
+    - img element is self closing
+    - alt : description
+    - src : URL
+-->
+<img alt="" src="">
+
+<!-- Anchor element to an external link
+    -href : URL
+         = "#" : for a dead link
+    -target : "_blank" : abre el enlace en nueva ventana
+-->
+<a href="" target="_blank">Anchor text</a>
+
+<!-- Anchor to an internal link
+    - href : usar # delante del id
+    - id : usar en el elemento al cual queremos acceder con el enlace
+-->
+<a href="#Example">Eddy</a>
+<p id="Example">Eddy</p>
+Ejemplo:
+<a href="#footer">Jump to Bottom</a>
+<footer id="footer">Copyright Cat Photo App</footer>
+
+<!-- Bullet points-->
+<ul>
+    <li></li>
+    <li></li>
+</ul>
+<!--Ordered list-->
+<ol>
+    <li></li>
+</ol>
+
+========================================================================================
+#### Forms
+
+<!-- Esquema de elementos de los Form
+    !no cambiar identación
+-->
+
+Form
+    Atributos:
+        * action 
+    Elementos:
+        * label
+            Atributos:
+                *for
+        
+            Atributos:
+                * for
+        * input
+                Atributos:
+                    * type
+                        * text
+                        * radio
+                        * checkbox
+                    * placeholder
+                    * required
+                    * checked
+                    * id
+                    * name
+                    * button
+                        type:
+                            * submit
+
+<!--Input elements
+    - Self closing!
+    - placeholder : shows before we write
+    - type
+        - text
+    - required : para hacer obligatorio rellener el campo
+-->
+<input type="text" placeholder="placeholderText">
+Ejemplo con required
+<input type="text" placeholder="placeholderText" required>
+Ejemplo de radio buttons
+
+<!-- 
+    label: By wrapping an input element inside of a label element 
+    it will automatically associate the checkbox input with the 
+    label element surrounding it.
+-->
+<label for="indoor">
+    <input id="indoor" type="radio" name="indoor-outdoor">Indoor
+</label>
+<label for="outdoor">
+    <input id="outdoor" type="radio" name="indoor-outdoor">Outdoor
+</label>
+
+
+<!-- form
+    -action : especifica lo que ocurrirá
+    -required : hace que sea obligatorio
+-->
+<form action="/submit-cat-photo">
+    <input type="text" placeholder="cat photo URL">
+</form>
+
+<!-- button
+    - type
+        submit: manda el texto a la URL indicada en el atributo action
+        del elemento padre form    
+-->
+<button type="submit">Text</button>
+
+Ejemplo completo:
+
+<form action="/submit-cat-photo">
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+    <label for="indoor">
+      <input id="indoor" type="radio" name="indoor-outdoor">Indoor
+    </label>
+    <label for="outdoor">
+      <input id="outdoor" type="radio" name="indoor-outdoor">Outdoor
+    </label>
+</form>
+
+<!--checkbox
+        
+-->
+<label for="loving">
+    <input id="loving" type="checkbox" name="personality">Pasota
+</label>
+<label for="loving" type="checkbox" name="personality">
+    <input id="loving" type="checkbox" name="personality">Agresivo
+</label>
+<label for="loving">
+    <input id="loving" type="checkbox" name="personality">Atento
+</label>
+
+<!--value-->
+<!--
+    !El valor de atributo value será la info que se mande cuando hagamos submit.
+    Los datos se recibirán así: name=value
+    *Ejemplo: indoor-outdoor = indoor
+    *Ejemplo2: personality = loving/lazy/energetic (al ser checkbox pueden ser las tres true o false)
+    Si no ponemos un value, se asignará value=on
+-->
+<form action="/submit-cat-photo">
+    <label><input type="radio" value ="indoor" name="indoor-outdoor"> Indoor</label>
+    <label><input type="radio" value ="outdoor" name="indoor-outdoor"> Outdoor</label><br>
+    <label><input type="checkbox" value ="loving" name="personality"> Loving</label>
+    <label><input type="checkbox" value ="lazy" name="personality"> Lazy</label>
+    <label><input type="checkbox" value="energetic" name="personality"> Energetic</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+</form>
+
+<!--checked
+    Atributo sin valor de input para que se quede marcado un checkbox o un radio
+-->
+<input type="radio" value ="indoor" name="indoor-outdoor" checked>
+
+==FIN forms======================================================================================
+
+<!--div-->
+<div></div>
+
+<!--DOCTYPE para html5, primera línea-->
+<!DOCTYPE html>
+
+<!--html envuelve todo el código-->
+<html></html>
+
+<!--HEAD
+    - link: relación con otra página
+        rel
+        href
+    - meta
+    - title: título de la página
+    - style: css para la página
+-->
+<link rel="stylesheet" href="">
+<title>Title</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+</head>
+<style>
+    body {background-color: powderblue;}
+    h1 {color: red;}
+    p {color: blue;}
+</style> 
+
+==================================================================================================
+#### HTML 5
+
+<!--Información esencial que no se repite en la página-->
+<main></main>
+
+<!--Contact info-->
+<footer></footer>
+Ejemplo
+<footer>
+    <p>Author: Hege Refsnes<br>
+    <a href="mailto:hege@example.com">hege@example.com</a></p>
+</footer>
+  
+
+
+=======================================================================================================
+### Explicaciones
+
+<!-- Make an element into a link-->
+Anidamos un elemento dentro de un Anchor element
+<a href="" target="">
+    <img alt="" src="">
+</a>
+
+<!--Options with radio buttons in forms-->
+<form action="/submit-cat-photo">
+    <label for="outdoor">
+        <input id="outdoor" type="radio" name="indoor-outdoor">Outdoor
+    </label>
+    <label for="indoor">
+        <input id="indoor" type="radio" name= "indoor-outdoor">Indoor
+    </label>
+</form>
+1. Rodeamos cada input con un label cuyo atributo for debe coincidir con
+    el atributo id del inputo. Esto relaciona la etiqueta con el input
+2. Le ponemos un type radio
+3. El atributo name de la etiqueta input debe ser el mismo para todos los
+    botones disponibles. De esta manera si se selecciona uno se deselecciona
+    el resto.
+
+<!--mailto
+    al poner como URL "mailto:correo@gmail.com" al hacer click se abre el gestor de correo.
+-->
+<a href="mailto:hege@example.com">hege@example.com</a>

@@ -1,10 +1,347 @@
 # Responsive Web Design Certification
-## Basic CSS 
+## Basic CSS (Cascading Style Sheets) 
 Start:      03/07/2020
-Pomodoros:  
+Pomodoros:  1
 Nota: Este documento usa la extension Better Comments
 <!--
     !
     TODO
     ?
 -->
+
+<!--style attribute
+    para inline css
+-->
+
+<!--style tags
+    indocument style    
+-->
+<style>
+    h2{
+        color: red;
+    }
+</style>
+
+<!--color property-->
+
+### Comandos
+
+==MAP===============================================================
+herencia
+    * important!> in-line style > ID > class > herencia 
+
+
+Units
+    Absolute (screen)
+        * in
+        * mm
+    Relative (elements)
+        * em 
+        * rem
+
+Selectors
+    * id
+        # to declare
+    * class
+        . to declare
+    * [attr=value]
+
+Css Properties:
+    * color
+    * font-size
+        * px
+        * in
+        * mm
+        * em
+        * rem
+    * width
+        * px
+    * font-family
+    * border-color
+    * border-width
+        * Px
+    * border-style
+        * solid
+        * dotted
+        * double
+        * dashed
+    * border-radius
+        * Px
+        * % ()
+    *background-color
+    *margin
+        * Px
+        * -px
+    *padding
+==FIN_MAP======================================================================
+
+<!--style attribute
+    para inline css
+    cerrar con ;
+-->
+<h2 style=";"></h2>
+
+<!--color-->
+<h2 style="color:blue;"></h2>
+### Explicaciones
+
+<!--class
+    - Podemos usar clases en el bloque style del head o en el .css
+    - Las clases se pueden usar en múltiples elementos html
+    - Podemos aplicar múltiples clases a un mismo elemento separándolas
+        con un espacio
+-->
+<style>
+    .blue-text {
+    color: blue;
+}
+</style>
+<h2 class="blue-text thick-green-border">CatPhotoApp</h2>
+
+<!--degrade
+    - Si Helvetica no está disponible, usa sans-serif
+    -->
+<style>
+    p{
+        font-family: Helvetica, sans-serif;
+    }
+</style>
+
+#### Images
+
+<!--width-->
+<style>
+    .smaller-image {
+    width: 100px;
+  }
+</style>
+
+<!--Border-->
+<style>
+    .thin-red-border {
+      border-color: red;
+      border-width: 5px;
+      border-style: solid;
+    }
+</style>
+<!--Border-style
+    - Se pueden poner distantas partes del borde en distintos estilos
+    - top-right-bottom-left
+-->
+<style>
+    .thin-red-border {
+        border-style: dotted solid double dashed;
+    }
+</style>
+<!--border radius
+    - 4 elements: top-left, top-right, bottom-right, bottom-left
+-->
+<style>
+    .thin-red-border {
+        border-style: dotted solid double dashed;
+        border-radius: 15px 50px 30px 5px;
+    }
+</style>
+<!--background-color-->
+<style>
+    .silver-background {
+     background-color: silver;
+  }
+</style>
+<div class="silver-background"></div>
+
+<!--id
+    - Use only one id for html element
+    - It is used for:
+        - Style an element
+        - Change it with javascript
+        - id prevalece sobre class si hay conflictos de estilo
+-->
+<style>
+    #cat-photo-form{
+        background-color: green;
+    }
+
+</style>
+<form action="/submit-cat-photo" id="cat-photo-form"></form>
+
+<!--
+    padding: espacio entre un elemento y sus bordes
+        - padding-top
+        - paddint-right
+        - padding-bottom
+        - padding-left
+        - padding: 10px 20px 10px 20px;
+            top, right, bottom, left (clock)
+    margin: espacio entre los bordes y los eltos de alrededor
+        - valor negativo en margin hace que crezca el elemento
+        - margin-top
+        - margin-left
+        - margin-bottom
+        - margin-right
+    -->
+    Ejemplo1
+    <style>
+        .blue-box {
+            background-color: blue;
+            padding-top: 40px;
+            padding-left: 40px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            margin-top: 40px;
+            margin-left: 40px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+          }
+    </style>
+    Ejemplo con clockwise notation
+    <style>
+        .blue-box {
+            background-color: blue;
+            padding: 40px 20px 20px 40px;
+            margin: 40px 20px 20px 40px;
+            color: #fff;
+        }
+    </style>
+
+<!--[attr=value] selector
+    - Le da un estilo a elementos cuyo atributo attr tenga el valor 
+        value
+    - En el ejemplo, todos los elementos cuyo atributo type sea del 
+        tipo checkbox pasarán a tener esos márgenes.
+-->
+<style>
+    [type='checkbox']{
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+</style>
+
+<!--em-->
+<style>
+    .yellow-box {
+        background-color: yellow;
+        padding: 20px 40px 20px 40px;
+      }
+      .red-box {
+        background-color: red;
+        margin: 20px 40px 20px 40px;
+        padding: 1.5em;
+      }
+</style>
+
+
+<!--!===================================================================-->
+### Explicaciones
+
+<!--Google fonts-->
+1. Copiar la URL de la fuente de google fonts
+2. Poner la URL en un enlace en la cabecera.
+    <link href="#" rel="stylesheet" type="text/css">
+3. Usar el nombre de la fuente usando la propiedad font-family
+Ejemplo
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<p style="font-family: lobster;"></p>
+Nota: Si instalas la fuente en el sistema operativo no hace falta usar el link.
+
+<!--units-->
+
+Relative
+    * em: Unidad relativa el tamaño de letra del elemento padre. 
+        Por ejemplo si un bloque div tiene font-size 16. En ese bloque 
+        y los hijos 1em = 16 px.
+        Si font-size se define, el elto lo heredará del elto padre.
+        Nota: 16px es el font-size por defecto
+
+<!--Herencia-->
+* Cada página HTML tiene un body.
+* Si aplicamos un estilo al body, el resto de elementos lo heredarán.
+* class style > inheritance style: El estilo de la clase aplicada sobre un
+    elemento, tiene prelación al estilo que ha heredado
+    Ejemplo: aquí el texto del h1 será pink.
+    <style>
+        .pink-text{
+          color: pink;
+        }
+        body {
+          background-color: black;
+          font-family: monospace;
+          color: green;
+        }
+      </style>
+      <h1 class="pink-text">Hello World!</h1>
+* Browsers read CSS from top to bottom in order of their declaration. 
+        
+      <style>
+        body {
+          background-color: black;
+          font-family: monospace;
+          color: green;
+        }
+        .pink-text {
+          color: pink;
+        }
+        .blue-text{
+          color: blue;
+        }
+      </style>
+      <!--Nota: no importa el orden de las clases aquí-->
+      <h1 class="pink-text blue-text">Hello World!</h1>
+* ID > class > herencia 
+    Ejemplo: aquí el texto se vería naranja
+    <style>
+        #orange-text{
+        color: orange;
+        }
+        body {
+        background-color: black;
+        font-family: monospace;
+        color: green;
+        }
+        .pink-text {
+        color: pink;
+        }
+        .blue-text {
+        color: blue;
+        }
+    </style>
+    <h1 class="pink-text blue-text" id="orange-text">Hello World!</h1>
+* in-line style > ID > class > herencia 
+    Ejemplo: Aquí el texto se vería blanco 
+        <style>
+            body {
+            background-color: black;
+            font-family: monospace;
+            color: green;
+            }
+            #orange-text {
+            color: orange;
+            }
+            .pink-text {
+            color: pink;
+            }
+            .blue-text {
+            color: blue;
+            }
+        </style>
+        <h1 style ="color: white" id="orange-text" class="pink-text blue-text">Hello World!</h1>
+    * !important>in-line style > ID > class > herencia 
+    Ejemplo: Aquí el texto sería pink.
+    <style>
+        body {
+          background-color: black;
+          font-family: monospace;
+          color: green;
+        }
+        #orange-text {
+          color: orange;
+        }
+        .pink-text {
+          color: pink !important;
+        }
+        .blue-text {
+          color: blue;
+        }
+      </style>
+      <h1 id="orange-text" class="pink-text blue-text" style="color: white">Hello World!</h1>

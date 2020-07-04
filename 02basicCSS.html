@@ -1,7 +1,7 @@
 # Responsive Web Design Certification
 ## Basic CSS (Cascading Style Sheets) 
 Start:      03/07/2020
-Pomodoros:  1
+Pomodoros:  10
 Nota: Este documento usa la extension Better Comments
 <!--
     !
@@ -229,6 +229,136 @@ Css Properties:
         margin: 20px 40px 20px 40px;
         padding: 1.5em;
       }
+</style>
+
+====Colors===
+
+<!-- hex (RGB) colors: 
+    - rango: 0-F (16)
+    - 6 x hex numbers to form colors in css
+        - 2 for red (R)
+        - 2 for green (G)
+        - 2 for blue (B)
+    - #RRGGBB
+    - example:  #000000
+    -->
+    <style>
+        .color{
+        background-color: #000000;
+        color: #FFA500
+        }
+    </style>
+<!--Shortened RGB
+    -#RGB    
+-->
+    <style>
+        .color{
+            color: #0ff;
+            color: #fff;
+            color: #f0f;
+            color: #0f0;
+
+        }
+    </style>
+<!-- rgb(0-255, 0-255, 0-255 
+    - 2 cifras en hexadecimal (0-f) = 16x16 = 256
+-->
+<style>
+    body {
+      background-color: rgb(255, 165, 0);
+    }
+</style>
+
+===fin=colors===
+
+<!--Variables como propiedades de CSS (not in IE)
+    - Declaración
+    - Uso 
+    - Fallback(debugging)
+-->
+    Declaration:
+    --variableName: value;
+    Se declara la variable en una clase y se usa en otras:
+    <style>
+        .penguin {
+          /* Only change code below this line */
+          --penguin-skin: gray;
+        }
+    </style>
+
+    Se cambia el color por:
+        var(--variableName, fallBackValue)
+        Si variableName es null se pondrá black
+    Ejemplo
+    <style>
+    .penguin-top {
+             background: var(--penguin-skin, black);
+      }
+    </style>
+
+<!-- Browser Fallbacks & Compatibility
+    * background: red; Hace que los browser que no soporten
+    * --variables, puedan poner un color de fondo.
+-->
+<style>
+    :root {
+      --red-color: red;
+    }
+    .red-box {
+        
+      background: red; 
+      background: var(--red-color);
+      height: 200px;
+      width:200px;
+    }
+  </style>
+  <div class="red-box"></div>
+
+<!-- root & inheritance of CSS variables
+    * :root -> pseudo selector de clase
+    * las variables se vuelven globales
+    * mathces the root element <html> normalmente
+    * todos los que heredan de html heredarán la variable que se 
+        *declare en root
+-->
+
+<!-- reasigning variables downstream
+    * Se puede hacer que una variable valga globalmente pink pero después
+        * la misma variable valga white para otra clase distinta.
+    * Los valores de las variables se asignan en las clases
+-->
+<style>
+    :root {
+      --penguin-belly: pink;
+    }
+    .penguin {
+     --penguin-belly: white;
+    }
+</style>
+
+<!-- media query breaking point
+    Usa la regla @media, que aplica con bloque de CSS sólo si se 
+    comple una condición
+    En el ejemplo, si el browser es 350px o más pequeño
+    el tamaño del pingüino pasa a ser 200px y su piel negra
+-->
+<style>
+    :root {
+      --penguin-size: 300px;
+      --penguin-skin: gray;
+      --penguin-belly: white;
+      --penguin-beak: orange;
+    }
+
+@media (max-width: 350px) {
+    :root {
+      /* Only change code below this line */
+    --penguin-size: 200px;
+    --penguin-skin: black;
+      /* Only change code above this line */
+    }
+  }
+
 </style>
 
 

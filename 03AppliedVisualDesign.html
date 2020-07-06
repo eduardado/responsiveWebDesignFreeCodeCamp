@@ -8,3 +8,138 @@ Nota: Este documento usa la extension Better Comments
     TODO
     ?
 -->
+
+### MAP
+--------------------------------
+    Notación: 
+    * Property
+        * Value
+    <etiqueta></etiqueta>
+--------------------------------
+    * text-align
+        * center;
+        * justify;
+        * right;
+        * left;
+    * font-size
+        * Px
+    * width:
+        * Px
+        * em
+        * %
+    * height
+    * font-weight
+    * bold
+    * text-decoration: 
+    * underline
+    * text-decoration: 
+    * line-through
+    * font-style
+    * italic
+    * box-shadow
+        * offset-x
+        * offset-y
+        * blur-radius (optional)
+        * spread-radius (optional)
+        * color
+    * Opacity
+        * 0.1-1
+    * text-transform
+        * lowercase
+        * uppercase
+        * capitalize
+        * initial
+        * inherit
+        * none
+    * Font-weight
+        * normal -> 400
+        * bold -> 700
+        * 0-900
+    * line-height
+        * px
+    * position
+        * relative;
+            offset:
+                * bottom
+                * left
+                * right
+                * bottom
+    * <em></em>
+    * <u></u>
+    * <strong></strong>
+    * <s></s>
+    * <hr> (SF)
+--------------------------------
+Pseudo clases:
+    * :hover
+    
+
+
+### Comandos
+
+<!--rgba(16x16,16x16,16x16,0.0-10)
+    - Tercer número es para la opacidad
+    - Se pueden aplicar múltiples sombras usando coma
+-->
+Ejemplo:
+<style>
+    .ejemplo{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19),
+                0 6px 6px rgba(0,0,0,0.23);
+  }
+</style>
+
+<!--box-shadow
+    The order:
+    - offset-x
+    - offset-y
+    - blur-radius (optional)
+    - spread-radius (optional)
+    - color
+-->
+Ejemplo
+<style>
+    #thumbnail{
+    box-shadow: 0 10px 20px rgba(200,0,0,0.19);
+  }
+</style>
+
+<!--Pseudoclase :hover-->
+<style>
+    a {
+      color: #000;
+    }
+    a:hover{
+      color: #00F;
+    }
+</style>
+<!--Position relative
+    - Mueve al lado contrario
+    - En el ejemplo el elto h2 se mueve hacia abajo.
+-->
+<style>
+    h2 {
+      position:relative;
+      top: 15px;
+    }
+</style>
+<!--!================================================================-->
+### Explicaciones
+
+<!--Sueltas-->
+    * Se puede usar height en cualquier elemento html
+    * <strong> hace lo mismo que font-weigth: bold.
+    * font-size se puede usar en headings y en todo elemento que tenga
+        texto
+    * Recuerda: W - E - I - G - H - T
+    * Pseudo Clases : Es una palabra clave que puede añadirse a los selectores para
+    seleccionar un estado específico del mismo.
+    * CSS box model: cada elemento es una caja.
+        * <h1><p><div> empiezan en una nueva línea
+        * <span><img> aparecen en la misma línea
+    * Position:relative
+            * Se mueve con respecto a donde debería aparecer.
+            * El resto de elementos a su alrededor actúa como si éste elemento
+                estuviese en su sitio original
+    * Position: absolute:
+            * Ancla el elto en un lugar respecto al elemento padre.

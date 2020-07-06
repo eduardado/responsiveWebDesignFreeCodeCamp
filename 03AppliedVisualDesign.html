@@ -64,17 +64,36 @@ Nota: Este documento usa la extension Better Comments
                 * left
                 * right
                 * bottom
+        * absolute
+        * fixed
+    * input
+        type
+            search
+    * float
+        * left
+        * right
+    * z-index
+        * integer 
+    * margin
+        * auto
+    * display
+        * block
+        * inline
+
+    * <section></section>
     * <em></em>
     * <u></u>
     * <strong></strong>
     * <s></s>
     * <hr> (SF)
+    * <header></header>
+    <aside></aside>
 --------------------------------
 Pseudo clases:
     * :hover
     
 
-
+--------------------------------
 ### Comandos
 
 <!--rgba(16x16,16x16,16x16,0.0-10)
@@ -123,6 +142,76 @@ Ejemplo
       top: 15px;
     }
 </style>
+
+<!--<section>-->
+<body>
+    <h1>Welcome!</h1>
+    <section>
+        <form id="searchbar">
+        <label for="search">Search:</label>
+        <input type="search" id="search" name="search">
+        <input type="submit" name="submit" value="Go!">
+        </form>
+    </section>
+</body>
+
+<!--float:
+    - right
+    - left 
+-->
+Ejemplo:
+<head>
+    <style>
+      #left {
+        float: left;
+        width: 50%;
+      }
+      #right {
+        float: right;
+        width: 40%;
+      }
+      aside, section {
+        padding: 2px;
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome!</h1>
+    </header>
+    <section id="left">
+      <h2>Content</h2>
+      <p>Good stuff</p>
+    </section>
+    <aside id="right">
+      <h2>Sidebar</h2>
+      <p>Links</p>
+    </aside>
+  </body>
+
+  <!--z-index
+    - A mayor el número más alto estará
+-->
+  <style>
+    .second {
+        z-index: 1;
+    }
+  </style>
+
+  <!--Centrar con margin: auto
+    -->
+    <!--*también vale para imágenes pero necesitamos display: block-->
+  <style>
+    div {
+      margin: auto;
+    }
+  </style>
+
+  <!--display
+    - block
+    - inline        
+-->
 <!--!================================================================-->
 ### Explicaciones
 
@@ -138,8 +227,55 @@ Ejemplo
         * <h1><p><div> empiezan en una nueva línea
         * <span><img> aparecen en la misma línea
     * Position:relative
-            * Se mueve con respecto a donde debería aparecer.
-            * El resto de elementos a su alrededor actúa como si éste elemento
-                estuviese en su sitio original
+        * Se mueve con respecto a donde debería aparecer.
+        * El resto de elementos a su alrededor actúa como si éste elemento
+            estuviese en su sitio original
+        * No interrumpe el flujo normal
     * Position: absolute:
-            * Ancla el elto en un lugar respecto al elemento padre.
+        * Ancla el elto en un lugar respecto al elemento padre.
+        * No sigue el flujo normal del documento
+        * El resto de elementos lo ignoran
+        * Se ancla respecto a ancestro más cercano (que tenga 
+            position:relative)
+        * El browser segirá buscando hasta el body.
+    * Position: fixed
+        * fija un elto con respecto a la ventana del navegador.
+        * quita al elemento del flujo normal(el resto de elementos
+            no sabe que está ahí)
+        * <!--*diferencia con position:absolute es que  cuando el usuario
+                *hace scroll, el elto no se moverá.-->    
+    * Float
+        * Salen del flujo normal
+        * Se suelen usar con width
+    * Stackeos
+        * Si los elementos se solapan, por defecto el último está encima
+        * z-index permite cambiar esto.
+    * Display
+        * block: hace que elementos que normalmente se muestran inline, como las imágenes
+            se muestren en bloque (en una nueva línea). 
+            ejemplos: <span> o <img>
+                * Esto permite usar margin: auto para centrarlos
+        * inline: hace lo contrario al anterior
+
+<!--navigation bar using position: relative-->
+<style>
+    #navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #767676;
+  }
+</style>
+
+<body>
+    <header>
+        <h1>Welcome!</h1>
+        <nav id="navbar">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>

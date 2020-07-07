@@ -1,13 +1,20 @@
 # Responsive Web Design Certification
 ## Applied Visual Design
 Start:      04/07/2020
-Pomodoros:  
+Pomodoros:  20
 Nota: Este documento usa la extension Better Comments
+<!--
+    TODO : Poner en la sección comandos ejemplos simples de sintaxis solamente
+-->
 <!--
     !
     TODO
     ?
 -->
+### Tabla de contenidos
+1. MAP: Comandos a secas
+2. COMANDOS + sintaxis
+3. Explicaciones + ejemplos
 
 ### MAP
 --------------------------------
@@ -16,6 +23,30 @@ Nota: Este documento usa la extension Better Comments
         * Value
         * Function()
     <etiqueta></etiqueta>
+--------------------------------
+--------------------------------
+Animation
+--------------------------------
+    * @keyframe
+        * 0-100%{}
+            * background-color
+            * position-relative
+                * top/left/
+    * animation-name
+    * animation-duration
+        * s/ms
+    * animation-fill-mode
+        * forwards
+    * animation-iteration-count
+        * integer
+        * infinite
+    * animation-timing-function
+        * ease
+        * ease-in
+        * ease-out
+        * linear
+    * cubic-bezier()
+        
 --------------------------------
     * text-align
         * center;
@@ -96,6 +127,9 @@ Nota: Este documento usa la extension Better Comments
             * deg
         * rotate ();
             * deg
+--------------------------------
+Text style with tags
+--------------------------------
     * <section></section>
     * <em></em>
     * <u></u>
@@ -111,11 +145,13 @@ Pseudo clases:
     * :hover
 --------------------------------
 --------------------------------
-Psedu elements
+Pseudo elements
 ::before
 ::after
 --------------------------------
-### Comandos
+
+<!--!-------------------------------------------------------------------------------------------------------------------------------------->
+### Comandos + Sintaxis
 
 <!--rgba(16x16,16x16,16x16,0.0-10)
     - Tercer número es para la opacidad
@@ -296,13 +332,20 @@ Ejemplo:
 <!-- transform: scale()
     * aumenta el tamaño de un elto un número de veces con respecto a 
         su tamaño originals
+    ! el atributo transform puede acumular más de una función
 -->
+Ejemplo de transform con una función
 <style>
     #ball2 {
     transform: scale(1.5);
   }
 </style>
-
+Ejemplo de transform con más de una función:
+<style>
+    #ball2 {
+    transform: scale(1.5) rotate(-45deg);
+  }
+</style>
 <!-- Transform in hover 
     * Aumenta de escala cuando pasamos el puntero por encima
     ! si aplicamos la transformación a un div, todos sus eltos hijos la sufren tb.
@@ -322,8 +365,16 @@ Ejemplo:
     transform: skewX(24deg);
   }
 </style>
+
+<!--cubic-bezier-->
+<style>
+    #ball1{
+        animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+    }
+</style>
+  
 <!--!=Explicaciones===============================================================-->
-### Explicaciones
+### Explicaciones + ejemplos
 
 <!--Sueltas-->
     * Se puede usar height en cualquier elemento html
@@ -506,6 +557,8 @@ Resumen: un cuadrado + 2 círculos desplazados y rotar el conjunto
 
 Detalles:
 * Al rotar la clae principal las otras dos también rotan.
+* las clases que tengan pseudoelementos deben tener el atributo content
+    * content puede ser un String vacío si estamos dibujando figuras.
 
 <style>
     .heart {
@@ -542,4 +595,534 @@ Detalles:
     }
   </style>
   <div class="heart"></div>
+  
+<!-- Animation @keyframes-->
+* Las propiedades de la animación: controla el comportamiento de la animación
+* @keyframes: controla lo que ocurre durante la animación
+1. Se le da una id al elemento que queremos animation-duration
+2. Se asigna a la id:
+  1. animation-name: X
+  2. animation-duration: Y(s)
+3. Se crea un @keyframes y junto a este el nombre que le dimos a la animación
+4. Se van añadiendo desde 0% hasta 100% las propiedades que queremos en cada viñeta
+5. La animación transicionará automáticamente entre estas viñetas
+
+<style>
+    div {
+      height: 40px;
+      width: 70%;
+      background: black;
+      margin: 50px auto;
+      border-radius: 5px;
+    }
+  
+    #rect {
+      animation-name: rainbow;
+      animation-duration: 4s;
+  
+    }
+    @keyframes rainbow{
+      0%{
+        background-color: blue;
+      }
+      50%{
+        background-color: green;
+      }
+      100%{
+        background-color: yellow;
+      }
+  
+    }
+  </style>
+  <div id="rect"></div>
+  
+  <!--CSS animation para cambiar el Hover State de un botón-->
+  Ejemplo para que transicione a otro color al hacer un hover
+  1. a la clase button con la pseudoclase :hover le damos los atributos:
+    1. animation-name: 
+    2. animation-duration
+  2. Añadimos un @keyframes con el nombre de la animación
+  3. Le ponemos en la viñeta 100% el color final.
+  4. Le ponemos, en la misma viñeta final el padding final(crece)
+
+  <style>
+    button {
+      border-radius: 5px;
+      color: white;
+      background-color: #0F5897;
+      padding: 5px 10px 8px 10px;
+    }
+  
+    button:hover {
+      animation-name: background-color;
+      animation-duration: 500ms;
+    }
+  
+    @keyframes background-color{
+      100%{
+        background-color: #4791d0;
+        padding: 10px 20px 16px 20px;
+      }
+    }
+  </style>
+  <button>Register</button>
+
+  <!--animation fill mode forwards: la animación se queda en el estado final-->
+  <style>
+  button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+  </style>
+
+  <!-- Crear movimiento-->
+  1. Fija la posición en position:relative
+  2. se usan los offset top/left para ir variando posiciones de 0%-100%
+  <style>
+    div {
+      height: 40px;
+      width: 70%;
+      background: black;
+      margin: 50px auto;
+      border-radius: 5px;
+      position: relative;
+    }
+  
+    #rect {
+      animation-name: rainbow;
+      animation-duration: 4s;
+    }
+  
+    @keyframes rainbow {
+      0% {
+        background-color: blue;
+        top: 0px;
+        left: 0px;
+  
+      }
+      50% {
+        background-color: green;
+        top: 50px;
+        left: 25px;
+  
+      }
+      100% {
+        background-color: yellow;
+        top: 0px;
+        left: -25px;
+  
+      }
+    }
+  </style>
+  
+  <div id="rect"></div>
+  
+  <!-- An elements that fades with opaticy-->
+  <style>
+
+    #ball {
+      width: 70px;
+      height: 70px;
+      margin: 50px auto;
+      position: fixed;
+      left: 20%;
+      border-radius: 50%;
+      background: linear-gradient(
+        35deg,
+        #ccffff,
+        #ffcccc
+      );
+      animation-name: fade;
+      animation-duration: 3s;
+    }
+  
+    @keyframes fade {
+      50% {
+        left: 60%;
+        opacity: 0.1;
+      }
+    }
+  
+  </style>
+  
+  <div id="ball"></div>
+  
+
+  <!--Animation loop with animation-iteration-count infinite-->
+  <!--*Una pelota que rebota infinitamente-->
+
+  1. Creamos una bolla con una superficie y un fondo(en este caso el fondo es un degradado que usa la función
+        linear-gradiente() de la propiedad background)
+  2. La animación tiene 3 estados
+    0%: el offset top está a 0px; (la pelota está arriba)
+    50%: 
+        * El off set top está a 249 px (la distancia que viaja)
+        * El width aumenta y el height disminuye
+    100% : vuelve a la posición inicial
+    * El animation-iteration-count: está a infinite.
+  3. Los atributos de animación se asocian a una id o a una clase
+
+
+  <style>
+
+    #ball {
+      width: 100px;
+      height: 100px;
+      margin: 50px auto;
+      position: relative;
+      border-radius: 50%;
+      background: linear-gradient(
+        35deg,
+        #ccffff,
+        #ffcccc
+      );
+      animation-name: bounce;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  
+    @keyframes bounce{
+      0% {
+        top: 0px;
+      }
+      50% {
+        top: 249px;
+        width: 130px;
+        height: 70px;
+      }
+      100% {
+        top: 0px;
+      }
+    }
+  </style>
+  <div id="ball"></div>
+  
+<!-- Making a heart beat-->
+1. Se crea una clase para el fondo
+  1. Se le añade:
+    1. Animación que dura un segundo y 
+    2. Se repite infinitamente
+    3. Se llama backdiv
+  2. En el @keyframes de backdiv
+    1. Se añade un estado intermedio 50% donde el color se torna rosa
+2. La clase .heart que tiene dos pseudoelementos:
+  1. Sólo hace falta animar a la clase sin pseudoelementos
+    1. En el @keyframes:
+        * Estado 0%:
+            * Se usa el atributo transform con las funciones:
+                * scale(1): mantiene la forma inicial
+                * rotate(-45deg): hay que poner esto para que conserve el giro que tuvimos que hacer
+                    para dibujar el corazón
+        * Estado 50 %
+            * transform:
+                * scale(0.6): el corazón se encoge al medio segundo de animación
+                * rotate(-45deg): igual, se mantiene para no perder el ángulo del corazón.
+                    hay que incluirlo para que no se estropee.
+<style>
+    .back {
+      position: fixed;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      animation-name: backdiv;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+  
+    }
+  
+    .heart {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: pink;
+      height: 50px;
+      width: 50px;
+      transform: rotate(-45deg);
+      animation-name: beat;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+  
+    }
+    .heart:after {
+      background-color: pink;
+      content: "";
+      border-radius: 50%;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 0px;
+      left: 25px;
+    }
+    .heart:before {
+      background-color: pink;
+      content: "";
+      border-radius: 50%;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: -25px;
+      left: 0px;
+    }
+  
+    @keyframes backdiv {
+      50% {
+        background: #ffe6f2;
+      }
+    }
+  
+    @keyframes beat {
+      0% {
+        transform: scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: scale(0.6) rotate(-45deg);
+      }
+    }
+  
+  </style>
+  <div class="back"></div>
+  <div class="heart"></div>
+  
+  <!-- Estrellas que titilan en diferentes momentos-->
+Detalles:
+* Hace una clase padre para las dos estrellas en la que incluye: color, altura, anchura, forma 
+  y !el número de veces que se repite la animación!<!--!!!!!-->
+* Hace una clase para cada estrella, cada una con una posición distinta y un nombre de animación
+* El titileo lo crea disminuyendo el tamaño del elto con transform: scale(0.5)
+* Para que titilen a distintos tiempos los que hace es, a una animación le añade que ocurra
+  en el momento 20% y a otra en el momento 50%ç
+* Después al final en los bloques div añade la clase padre a las dos estrellas y la clase hija
+  que le corresponde.
+* Es una buena estrategia hacer factor comun y luego añadir varias clases a un mismo elemento.
+
+  <style>
+    .stars {
+      background-color: white;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      animation-iteration-count: infinite;
+    }
+  
+    .star-1 {
+      margin-top: 15%;
+      margin-left: 60%;
+      animation-name: twinkle-1;
+      animation-duration: 1s;
+    }
+  
+    .star-2 {
+      margin-top: 25%;
+      margin-left: 25%;
+      animation-name: twinkle-2;
+      animation-duration: 1s;
+    }
+  
+    @keyframes twinkle-1 {
+      50% {
+        transform: scale(0.5);
+        opacity: 0.5;
+      }
+    }
+  
+    @keyframes twinkle-2 {
+      20% {
+        transform: scale(0.5);
+        opacity: 0.5;
+      }
+    }
+  
+    #back {
+      position: fixed;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+    }
+  </style>
+  
+  <div id="back"></div>
+  <div class="star-1 stars"></div>
+  <div class="star-2 stars"></div>
+  <!-- 3 estrellas titilan: animation-duration 
+    * Esta vez, en lugar de crear varias animaciones, una para cada estrella, se genera una sola animación llamada
+    * twinkle. En cada estrella se le dice que la animación se llama twinkle pero la duración cambia ligeramente.
+-->
+  <style>
+    .stars {
+      background-color: white;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      animation-iteration-count: infinite;
+    }
+  
+    .star-1 {
+      margin-top: 15%;
+      margin-left: 60%;
+      animation-duration: 1s;
+      animation-name: twinkle;
+    }
+  
+    .star-2 {
+      margin-top: 25%;
+      margin-left: 25%;
+      animation-duration: 0.9s;
+      animation-name: twinkle;
+    }
+  
+    .star-3 {
+      margin-top: 10%;
+      margin-left: 50%;
+      animation-duration: 1.1s;
+      animation-name: twinkle;
+    }
+  
+    @keyframes twinkle {
+      20% {
+        transform: scale(0.5);
+        opacity: 0.5;
+      }
+    }
+  
+    #back {
+      position: fixed;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+    }
+  </style>
+  
+  <div id="back"></div>
+  <div class="star-1 stars"></div>
+  <div class="star-2 stars"></div>
+  <div class="star-3 stars"></div>
+  
+  <!--animation timing function
+    * Controla cómo de rápido un elto cambia durante la animación
+    * Aceleración y deceleración
+    * 
+    -->
+    <!--dos bolas degradadas que se mueven con distinta cinética
+        *(mirar mapa para ver posibilidades de animation-timing-function)-->
+    <style>
+
+        .balls {
+          border-radius: 50%;
+          background: linear-gradient(
+            35deg,
+            #ccffff,
+            #ffcccc
+          );
+          position: fixed;
+          width: 50px;
+          height: 50px;
+          margin-top: 50px;
+          animation-name: bounce;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
+        #ball1 {
+          left:27%;
+          animation-timing-function: linear;
+          
+      
+        }
+        #ball2 {
+          left:56%;
+          animation-timing-function: ease-out;
+        }
+      
+        @keyframes bounce {
+          0% {
+            top: 0px;
+          }
+          100% {
+            top: 249px;
+          }
+        }
+      
+      </style>
+      
+      <div class="balls" id="ball1"></div>
+      <div class="balls" id="ball2"></div>
+
+<!-- Bezier curves-->
+
+The cubic-bezier function consists of four main points that sit on this 1 by 1 grid: p0, p1, p2, and p3. 
+p0 and p3 are set for you - they are the beginning and end points which are always located respectively at the origin (0, 0) and (1, 1). 
+You set the x and y values for the other two points, and where you place them in the grid dictates the shape of the curve for the animation to follow. 
+This is done in CSS by declaring the x and y values of the p1 and p2 "anchor" points in the form: (x1, y1, x2, y2). 
+Pulling it all together, here's an example of a Bezier curve in CSS code:
+
+animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+
+Ejemplo:
+
+En el código anterior simplemente cambiando
+    animation-timing-function: linear;
+por
+animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+
+Funciona igual ya que desde x(0.25, 0,25) a y (0.75, 0.75) es una línea.
+
+<!-- 3 bolas lanzándose al aire usando un custom cubic-bezier que se sale del 0-1 en el eje y
+    - la pelota verda es la que parece que está lanzándose al aire y luego callendo.
+-->
+<!--! Si animation-iteration-duration vale infinite
+    animation-timing-function hace un loop en cada regla del @keyframes    
+    el resultado es que, al haber una regla al 50%, la animación de aceleración va
+    hacia arriba y luego hacia abajo.
+-->
+<style>
+    .balls {
+      border-radius: 50%;
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      top: 60%;
+      animation-name: jump;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    #red {
+      background: red;
+      left: 25%;
+      animation-timing-function: linear;
+    }
+    #blue {
+      background: blue;
+      left: 50%;
+      animation-timing-function: ease-out;
+    }
+    #green {
+      background: green;
+      left: 75%;
+      animation-timing-function: cubic-bezier(0.311, 0.441, 0.444, 1.649);
+    }
+  
+    @keyframes jump {
+      50% {
+        top: 10%;
+      }
+    }
+  </style>
+  <div class="balls" id="red"></div>
+  <div class="balls" id="blue"></div>
+  <div class="balls" id="green"></div>
   

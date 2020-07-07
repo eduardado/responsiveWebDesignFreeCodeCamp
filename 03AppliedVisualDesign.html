@@ -14,6 +14,7 @@ Nota: Este documento usa la extension Better Comments
     Notación: 
     * Property
         * Value
+        * Function()
     <etiqueta></etiqueta>
 --------------------------------
     * text-align
@@ -76,10 +77,25 @@ Nota: Este documento usa la extension Better Comments
         * integer 
     * margin
         * auto
+        * 2 values: top/bottom, right/left
     * display
         * block
         * inline
-
+    * background-color:
+        * transparent
+    * background
+        * liner-gradient()
+        * repeating-linear-gradient()
+        * url()
+    * transform
+        * scale();
+            * 1/1
+        * skewX();
+            * deg
+        * skewY();
+            * deg
+        * rotate ();
+            * deg
     * <section></section>
     * <em></em>
     * <u></u>
@@ -87,12 +103,17 @@ Nota: Este documento usa la extension Better Comments
     * <s></s>
     * <hr> (SF)
     * <header></header>
-    <aside></aside>
+    * <aside></aside>
+    * <article></article>
+    * <button></button>
 --------------------------------
 Pseudo clases:
     * :hover
-    
-
+--------------------------------
+--------------------------------
+Psedu elements
+::before
+::after
 --------------------------------
 ### Comandos
 
@@ -109,7 +130,7 @@ Ejemplo:
 </style>
 
 <!--box-shadow
-    The order:
+    en orden:
     - offset-x
     - offset-y
     - blur-radius (optional)
@@ -208,11 +229,100 @@ Ejemplo:
     }
   </style>
 
-  <!--display
-    - block
-    - inline        
+<!--hsl(0-160,0-100%,0-100%)
+    (hue, saturation, brightness)
+<!--    * para ajustar el tono, se cambia la saturación y el brillo 
 -->
-<!--!================================================================-->
+<style>
+    header {
+      background-color: hsl(180, 90%, 35%);
+      background-color: hsl(180, 80%, 25%);
+      background-color: hsl(180, 80%, 40%);
+      background-color: hsl(180, 20%, 40%);
+    }
+</style>
+
+<!--Linear gradient
+    - Se pueden usar muchos colores separados por comas
+-->
+
+Sintaxis
+background: linear-gradient(
+    gradient_direction, color 1, color 2, color 3, ...);
+
+Ejemplo:
+<style>
+    .ex{
+        background: linear-gradient(
+            90deg, red, yellow, rgb(204, 204, 255));
+    }
+</style>
+
+    <!--Repeating linear gradient()
+    -->
+    <style>
+        div{
+            background: repeating-linear-gradient(
+            45deg,
+            yellow 0px,
+            green 40px,
+            black 40px,
+            red 80px
+          );
+    
+        }feDisplacementMap
+
+    </style>
+
+<!-- A margin with 2 values
+    * El primer valor es para top/bottom, se separará 50px
+    * El segundo valor es para left/right: al ser auto, se centra.
+-->
+<style>
+    p{margin: 50px, auto}
+</style>
+
+<!-- background
+    * url()
+    - Al añadir un patrón a la función url() de la propiedad background,
+        genera una textura.
+-->
+<style>
+    body {
+      background: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png");
+    }
+</style>
+
+<!-- transform: scale()
+    * aumenta el tamaño de un elto un número de veces con respecto a 
+        su tamaño originals
+-->
+<style>
+    #ball2 {
+    transform: scale(1.5);
+  }
+</style>
+
+<!-- Transform in hover 
+    * Aumenta de escala cuando pasamos el puntero por encima
+    ! si aplicamos la transformación a un div, todos sus eltos hijos la sufren tb.
+-->
+<style>
+    div:hover{
+        transform:scale(1.1);
+      }
+</style>
+
+<!-- SkewX, cizalla en el eje x
+    - valor negativo cambia sentido
+    - deg como unidades
+-->
+<style>
+    #bottom {
+    transform: skewX(24deg);
+  }
+</style>
+<!--!=Explicaciones===============================================================-->
 ### Explicaciones
 
 <!--Sueltas-->
@@ -256,6 +366,42 @@ Ejemplo:
             ejemplos: <span> o <img>
                 * Esto permite usar margin: auto para centrarlos
         * inline: hace lo contrario al anterior
+    * Colores complementarios:
+        * Están en lados contrarios de la rueda de color.
+        * Se cancelan al combinarse
+        * Al ponerse el uno al lado del otro crean contraste.
+    * Colores básicos
+        Primarios
+            * R
+            * G
+            * B
+        Secundarios:
+            * Cyan: G + B -> complementario: R
+            * Magenta: R + B -> complementario: G
+            * Yellow: R + G -> complementario: B
+        Terciarios:
+            Combinar un color primario + uno de sus secundarios
+            Ejemplo: Rojo(p) + Amarillo (secundario) = naranja (terciario)
+    Split-Complementary scheme (para armonía)
+        1. Color base
+        2. Coger los 2 adyacentes al complementario
+    HSL
+        * Hue : 360
+        * Saturation: amount of gray 0-100%
+                * Fully saturated: 100% -> no gray
+                * No saturated: 0% -> super gray.
+        * Ligthness* Amount of black/white
+                * 0% black
+                * 100% white
+    Ajustar el tono de un color: 
+        * tint = white + pure hue 
+        * shadow = black + pure hue 
+        * tone 
+            * Add gray = change saturation (2nd number)
+            * tint/shadow = change lightness
+    * Todos los elementos tienen un background-color: transparent
+    * border-radius : 50% crea un círculo.
+
 
 <!--navigation bar using position: relative-->
 <style>
@@ -279,3 +425,121 @@ Ejemplo:
         </nav>
     </header>
 </body>
+
+<!-- Color stripes(rayas) con repeating-linear-gradient
+     
+-->
+<style>
+    div{
+      border-radius: 20px;
+      width: 70%;
+      height: 400px;
+      margin:  50 auto;
+      background: repeating-linear-gradient(
+        45deg,
+        yellow 0px,
+        green 40px,
+        black 40px,
+        red 80px
+      );
+    }
+  </style>
+  <div></div>
+
+  <!-- Crescent moon shape with box-shadow
+    - Se crea un bloque div
+    - Se le forma redonda con border-radius : 50%
+    - Se le da sombra con box-shadow y se elimina el blur y el spread
+    - Se le pone un poquito de offset x e y a la sombra
+    - Se pone el div transparente
+    - Se le da color a la sombra.
+-->
+  <style>
+    .center {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: 25px 10px 0px 0px blue;
+    }
+  
+  </style>
+  <div class="center"></div>
+
+  <!--Pseudo Elements ::before ::after-->
+  * Se usan para añadir algo antes o después de un elemento
+  * Necesitan incorporar el atributo content(aunque esté vacío)
+    * Se suele usan para añadir una foto o un texto
+    * Cuando los pseudoelementos se usan pra producir formas,
+        se le da a content el valor de un String vacío content=  ;
+    * Al pintar figuras lo que hace es clonar la clase inicial en 2 más
+        con las que podemos jugar (ver corazón con ::before & ::after)
+            
+
+Pseudo elements:
+<style>
+    .heart::before{
+        content: ;
+    }
+    .heart::after{
+        content:;
+    }
+</style>
+
+<!-- Corazón con before & after-->
+Resumen: un cuadrado + 2 círculos desplazados y rotar el conjunto
+1. Pintamos un cuadrado con una clase
+2. "Clonamos" el cuadrado usando ::before
+    1. Le damos forma redonda con border-radius: 50 %;
+    2. Lo movemos un poco para arriba usando el offset top y dándole un 
+        valor negativo. (el atributo usado puede ser position: absolute)
+3. "Clonamos la figura" con ::after
+    1. Le damos forma redonda
+    2. Lo movemos un poco a la derecha(left)
+4. Rotamos las 3 figuras -45 grados con transform: rotate(-45deg)
+
+Detalles:
+* Al rotar la clae principal las otras dos también rotan.
+
+<style>
+    .heart {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: pink;
+      height: 50px;
+      width: 50px;
+      transform: rotate(-45deg);
+    }
+    .heart::after {
+      background-color: pink;
+      content: "";
+      border-radius: 50%;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 0px;
+      left: 25px;
+    }
+    .heart::before {
+      content: "";
+      background-color: pink;
+      border-radius: 50%;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: -25px;
+      left: 0px;
+    }
+  </style>
+  <div class="heart"></div>
+  

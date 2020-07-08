@@ -1,7 +1,9 @@
 # Responsive Web Design Certification
+Repositorio: https://github.com/eduardado/responsiveWebDesignFreeCodeCamp
+
 ## Applied Accessibility
 Start:      08/07/2020
-Pomodoros:  
+Pomodoros: 4
 Notas: 
 * Este documento usa la extension Better Comments de Visual Studio Code
 * Sugerencia Usar =MAP/=SINTAXIS/=EJEMPLOS para saltar entre secciones
@@ -18,6 +20,229 @@ Notas:
 * EJEMPLOS
 
 <!--*=MAP========================================================-->
+--Leyenda--
+<tag>
+  * attribute
+
+-----------
+
+* <img>
+    * alt
+        * ""
+        * "text"
+* <h1>
+
+--HTML5 tags--
+
+* <main>
+* <header>
+* <footer>
+* <nav>
+* <article>
+* <section>
+* <article>
+* <div>
+* <audio>
+  * controls (boolean attribute)
+* <source>
+  * src
+  * type
+* <figure>
+* <figcaption>
+* <form>
+* <label>
+  * for
+* <input>
+  * type
+  * id
+  * name
+
+--caracteres especiales--
+
+* &copy; símbolo de copyright
+* &amp; símbolo &
+
 <!--?=SINTAXIS===================================================-->
+
+<!--alt
+    - Ayuda a los motores de búsqueda a catalogar la imagen
+    - Ayuda a personas con problemas de visión a recibir audio-guía
+    - Es obligatorio en estándares de HTML5 
+-->
+<img alt="Camper cat is doing karate" src="doingKarateWow.jpeg">
+
+<!-- Headings
+    - Deberíamos usar uno y sólo un <h1> que es el tema principal de 
+        la web.
+-->
+
+<!--main
+    - Se usa para que al pulsar "Jump to Main content" se vaya a
+        esa parte de la web
+-->
+<header>
+    <h1>Weapons of the Ninja</h1>
+</header>
+<main>
+</main>
+<footer></footer>
+
+<!--nav-->
+<nav>
+    <ul>
+        <li><a href="#ejemplo">Enlace</a></li>
+    </ul>
+    <section id="ejemplo">Hola</section>
+</nav>
+
+<!--audio and controls-->
+<audio controls>
+  <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg" />
+</audio>
+
+<!--figure & figcaption-->
+<figure>
+  <img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
+  <figcaption>Breakdown per week of time to spend training in stealth, combat, and weapons.</figcaption>
+</figure>
+
+<!-- label
+  * el valor de for del label debe coincidir con el id del input
+-->
+
+<form>
+  <p>Sign up to receive Camper Cat's blog posts by email here!</p>
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email">
+
+  <input type="submit" name="submit" value="Submit">
+</form>
+
+
 <!--!=EJEMPLOS===================================================-->
+
+--Resumen explicado--
+
+
+
+--semantic HTML markup
+  * Los HTML5 tags se tratan como un div pero dan información semántica
+    del contenido de la web y a veces dan funcionalidades.
+--
+* <main> se usa para el contenido principal de una página y sólo debe
+    haber un tag como éstes.
+* <article> se usa para trozos de texto independientes (entradas, post de
+    un blog etc.)
+* <section> se usa para agrupar partes de un todo. La diferencia con article
+    es : si un libro es un article, una hoja es una section.
+* <div> no tiene relación con otros textos.
+* <header> 
+    * Tiene un landmark(permite ir automáticamente)(embedded landmark feature)
+    * Información introductoria o 
+    * Navigation linkspara su etiqueta padre??
+    * Para contenido que se repite en lo altode múltiples páginas
+* todos los eltos html5 se usan dentro del body, es distinto que el <head>
+* <nav> 
+    * acumula todos los enlaces a otras partes de la página
+    * tiene landmark feature
+* <footer>
+    * tiene landmark
+    * copyright info
+    * enlaces a otros documentos
+* <audio>
+  * para streamings de audio
+  * usa el atributo controls para añadir controles (es booleano así que no hay que
+    ponerle nada más)
+  * dentro va el tag <source>
+    * att type indica el codec
+    * att src indica la URL
+* <figure> se usa para mostrar imágenes, gráficos etc
+    * usa <figcaption> para describir el gráfico o tabla para personas
+        con problemas de visión.
+
+
+<!--Headings
+    - Nota: uso del <main>
+-->
+<h1>How to Become a Ninja</h1>
+<main>
+  <h2>Learn the Art of Moving Stealthily</h2>
+  <h3>How to Hide in Plain Sight</h3>
+  <h3>How to Climb a Wall</h3>
+
+  <h2>Learn the Art of Battle</h2>
+  <h3>How to Strengthen your Body</h3>
+  <h3>How to Fight like a Ninja</h3>
+
+  <h2>Learn the Art of Living with Honor</h2>
+  <h3>How to Breathe Properly</h3>
+  <h3>How to Simplify your Life</h3>
+</main>
+
+<!--Header-->
+<body>
+
+    <header>
+      <h1>Training with Camper Cat</h1>
+    </header>
+
+    <main>
+      <section id="stealth">
+        <h2>Stealth &amp; Agility Training</h2>
+        <article><h3>Climb foliage quickly using a minimum spanning tree approach</h3></article>
+        <article><h3>No training is NP-complete without parkour</h3></article>
+      </section>
+      <section id="combat">
+        <h2>Combat Training</h2>
+        <article><h3>Dispatch multiple enemies with multithreaded tactics</h3></article>
+        <article><h3>Goodbye world: 5 proven ways to knock out an opponent</h3></article>
+      </section>
+      <section id="weapons">
+        <h2>Weapons Training</h2>
+        <article><h3>Swords: the best tool to literally divide and conquer</h3></article>
+        <article><h3>Breadth-first or depth-first in multi-weapon training?</h3></article>
+      </section>
+    </main>
+  </body>
+
+  <!--nav-->
+  nav sirve para guardar enlaces para moverse por la página
+  1. crear una etiqueta nav
+  2. crear una lista desordenada
+  3. crear un <li> por cada enlace
+  4. crear un anchor element
+  5. Dentro del atributo href añadir:
+    * #[ID]
+    * Poner in texto dentro de la etiqueta anchor
+  6. Poner, en el elemento que sea donde queremos viajar al pulsar 
+    el enlace la [ID]
+    Ejemplo
+  <body>
+    <header>
+      <h1>Training with Camper Cat</h1>
+  
+      <nav>
+        <ul>
+          <li><a href="#stealth">Stealth &amp; Agility</a></li>
+          <li><a href="#combat">Combat</a></li>
+          <li><a href="#weapons">Weapons</a></li>
+        </ul>
+      </nav>
+  
+    </header>
+    <main>
+      <section id="stealth">
+       
+      </section>
+      <section id="combat">
+        
+      </section>
+      <section id="weapons">
+        
+      </section>
+    </main>
+  </body>
+
+
+
 

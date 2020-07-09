@@ -6,7 +6,7 @@ Start:      08/07/2020
 Pomodoros: 4
 Notas: 
 * Este documento usa la extension Better Comments de Visual Studio Code
-* Sugerencia Usar =MAP/=SINTAXIS/=EJEMPLOS para saltar entre secciones
+* Sugerencia Usar el símbolo = + MAP/SINTAXIS/EJEMPLOS para saltar entre secciones
 * Ejemplo de colores
 <!--
     !
@@ -54,8 +54,24 @@ Notas:
   * for
 * <input>
   * type
+    * text
+    * submit
+    * date
   * id
   * name
+* <fieldset>
+* <legend>
+* <time>
+  * datetime
+* <scope>
+
+--class--
+.sr-only{
+  * overflow
+    * hidden;
+    * visible;
+    * scroll;
+}
 
 --caracteres especiales--
 
@@ -106,17 +122,54 @@ Notas:
   <figcaption>Breakdown per week of time to spend training in stealth, combat, and weapons.</figcaption>
 </figure>
 
-<!-- label
-  * el valor de for del label debe coincidir con el id del input
+<!-- label & input (forms)
+  * Asociamos el texto "Email:" con el elto input.
+  * el valor de for debe coincidir con el valor de id
 -->
 
+<form>
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email">
+</form>
+
+<!-- fielset & legend
+    * fieldset rodea a todos los botones "levels"
+    * Nota: cada input tiene un lable que rodea al texto que precede
+      * a su radio button input.
+-->
 <form>
   <p>Sign up to receive Camper Cat's blog posts by email here!</p>
   <label for="email">Email:</label>
   <input type="text" id="email" name="email">
 
+  <fieldset>
+    <legend>What level ninja are you?</legend>
+
+    <input id="newbie" type="radio" name="levels" value="newbie">
+    <label for="newbie">Newbie Kitten</label><br>
+
+    <input id="intermediate" type="radio" name="levels" value="intermediate">
+    <label for="intermediate">Developing Student</label><br>
+
+    <input id="master" type="radio" name="levels" value="master">
+    <label for="master">Master</label>
+  </fieldset>
+
+
   <input type="submit" name="submit" value="Submit">
 </form>
+
+<!-- input date-->
+<label for="pickdate">Preferred Date:</label>
+<input type="date" id="pickdate" name="date">
+
+<!-- time datetime-->
+<p>
+The best day to host the vaunted Mortal Kombat tournament is 
+<time datetime="2016-09-15">Thursday, September 15<sup>th</sup></time>
+.May the best ninja win!
+</p>
+
 
 
 <!--!=EJEMPLOS===================================================-->
@@ -159,6 +212,15 @@ Notas:
 * <figure> se usa para mostrar imágenes, gráficos etc
     * usa <figcaption> para describir el gráfico o tabla para personas
         con problemas de visión.
+* <label> 
+  * Sirve para envolver un texto y asociarlo a un elemento del form, por ejemplo
+    un input.
+* <fieldset> : Envuelve un grupo de botones del mismo campo semántico.
+  * <legend> : Para explicar de qué va el grupo de botones y lo pueda leer un screenreadeer.
+* <input type="date" > : Sirve para ayudar al usuario a escoger fecha
+    * en browsers antigüos type cambia a text
+    * nota: input se cierra sola
+* <time datetime="YYYY-MM-DD"> Envuelve a fechas escritas de manera informal para evitar confusiones
 
 
 <!--Headings
@@ -243,6 +305,24 @@ Notas:
     </main>
   </body>
 
+<!-- Esconder un elto para que sólo lo lea un screen reader
+  * display: none y visibility: hidden esconden para todos, no usar.
+  * width/height = 0px hace que desaparezcan, no usar.
+  1. posición absolute
+  2. a la izquierda muy lejos
+  3. tamaño 1px x 1px
+  4. overflow: hidden;
+-->
+<style>
+  .sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+</style>
 
 
 

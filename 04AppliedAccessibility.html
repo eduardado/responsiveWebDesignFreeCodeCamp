@@ -64,8 +64,10 @@ Notas:
 * <time>
   * datetime
 * <scope>
+* accesskey
+* tabindex
 
---class--
+
 .sr-only{
   * overflow
     * hidden;
@@ -77,6 +79,9 @@ Notas:
 
 * &copy; símbolo de copyright
 * &amp; símbolo &
+
+-- pseudoelementos
+* :focus
 
 <!--?=SINTAXIS===================================================-->
 
@@ -170,9 +175,44 @@ The best day to host the vaunted Mortal Kombat tournament is
 .May the best ninja win!
 </p>
 
+<!-- aumentando contraste para favorecer lectura
+  * Al hacer más oscuro el oscuras(shadow) la letras y más claro el fondo(tint)
+    aumentamos el contraste y mejoramos la visibilidad.
+-->
+<style>
+  body {
+    color: hsl(0, 55%, 20%);
+    background-color: hsl(120, 25%, 55%);
+
+    color: hsl(0, 55%, 15%);
+    background-color: hsl(120, 25%, 35%);
+  }
+  </style>
+
+<!--acesskey
+  - Se puede usar en cualquier elto
+  - Atajo de teclado para eltos HTML
+-->
+<button accesskey="b">Important Button</button>
+
+<h2><a id="first" href="#" accesskey="g">The Garfield Files: Lasagna as Training Fuel?</a></h2>
+
+<!-- tabindex & :focus
+  * El pseudoelemento :focus hace que cuando pulsamos TAB y el navegador se enfoca en un elto. 
+  * Se aplicará el estilo que estamos usando.
+-->
+
+<style>
+  p:focus {
+    background-color: yellow;
+  }
+</style>
+
+<p tabindex="0">Instructions: Fill in ALL your information then click <b>Submit</b></p>
 
 
-<!--!=EJEMPLOS===================================================-->
+
+<!--!=EJEMPLOS=Y=EXPLICACIONES===================================================-->
 
 --Resumen explicado--
 
@@ -221,6 +261,27 @@ The best day to host the vaunted Mortal Kombat tournament is
     * en browsers antigüos type cambia a text
     * nota: input se cierra sola
 * <time datetime="YYYY-MM-DD"> Envuelve a fechas escritas de manera informal para evitar confusiones
+* Contraste: Entre el texto y el fondo
+  * 1:1 : mismo color
+  * 21:1 : blanco y negro
+  * 4.5:1 : mínimo recomendado
+  * Se puede conseguir contraste:
+    * shading (adding black): a los colores oscures
+    * tinting (añadiendo blanco): a los colores claros.
+  * Conviene usar <a href="">Información</a> entre los anchor para los screen readers.
+* accesskey : 
+  * Atributo que permite activar o enforcar en un elemento. 
+  * Sirve para usuarios de teclado.
+  * Muy útil para eltos interactivos como:
+    * Enlaces
+    * Botonos
+    * form controls (submit)
+* tabindex: si pulsamos tabulador en una página, el "focus" va cambiando a control forms
+    botones, input fields etc de manera automática. Al asignar a un elto el atribuo tabdindex=0 le damos
+    también esta capacidad. Así, podríamos usarlo en <div><p> o <span>
+    * Si le damos tabindex= -1 u otro valor negativo, el elemento es focuseable pero no por el 
+      teclado, se usa para ventanas emergentes. 
+
 
 
 <!--Headings

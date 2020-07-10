@@ -13,27 +13,89 @@ Notas:
     *
 -->
 ### Tabla de contenidos
-* MAP
+<!--*=MAP========================================================-->
+
 * @media (condition){css rules}
     conditions:
         * max/min-width
         * max/min-height
+    * max-width
+        * %
+    * height
+        * auto;
 
-* SINTAXIS
+---------------
+Viewport units
+* vw
+* vh
+* vmin
+* vmax
+
+
+<!--?=SINTAXIS===================================================-->
 <!-- media query
     - Puede haber múltiples media querys
 -->
 <style>
-    @media (max-width: 100){ .p{background-color: red};
-    @media (min-width: 100){ .p{background-color: red};
-    @media (min-height: 100){ .p{background-color: red};
+    @media (max-height: 800px){
+    p{
+      font-size: 10px;
+    }
+  }
 </style>
 
-* EJEMPLOS
+<!-- Responsive img-->
+<style>
+    .responsive-img {
+        max-width : 100%;
+        height: auto;
+    }
+</style>
 
-<!--*=MAP========================================================-->
-<!--?=SINTAXIS===================================================-->
+<!-- responsive typography
+    - El body será el 30% del la anchura del viewport.
+-->
+<style>
+    body{
+        width: 30vw;
+    }
+</style>
+
+
 <!--!=EJEMPLOS===================================================-->
 
 * viewport: el área visible.
 * media query: estilos css que se aplicarán sólo si se comple la condición.
+* max-width: 100%: la imagen nunca será más grande que el contenedor.
+* height: auto : se respetará el aspect ratio
+* pixel density
+    * PPI: pixels per inch
+    * DPI: dots per inch
+* Halth the heigth and width of a picture so it doesn't pixelate on 
+    retina's display.
+* Responsive typography: usar porcentajes, que se adaptan al viewport en
+    lugar de usar em (relativo al elto padre) o px.
+* Viewport units
+    * vw: viewport width
+        * 10vw -> 10 % de la anchura del viewport
+    * vh: viewport height
+        * 3vh -> 3% de la altura del viewport
+    * vmin: viewport minimun
+        * 70vmin -> el 70 % de la dimensión más pequeña del viewport
+    * vmax: viewport maximun(ancho o alto)
+        * 100vmax -> el 100% de la mayor dimensión del viewport(ancho o alto)
+
+<!-- Responsive typography
+    - Me llama la atención que lo que se cambia no es text-size sino
+        width. 
+-->
+<style>
+    h2{
+      width: 80vw;
+    }
+    p{
+      width: 75vmin;
+    }
+  
+</style>
+

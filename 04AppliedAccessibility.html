@@ -3,7 +3,7 @@ Repositorio: https://github.com/eduardado/responsiveWebDesignFreeCodeCamp
 
 ## Applied Accessibility
 Start:      08/07/2020
-Pomodoros: 4
+Pomodoros: 8
 Notas: 
 * Este documento usa la extension Better Comments de Visual Studio Code
 * Sugerencia Usar el símbolo = + MAP/SINTAXIS/EJEMPLOS para saltar entre secciones
@@ -210,6 +210,10 @@ The best day to host the vaunted Mortal Kombat tournament is
 
 <p tabindex="0">Instructions: Fill in ALL your information then click <b>Submit</b></p>
 
+<!-- tabindex y focus ordenado-->
+<div tabindex="1">I get keyboard focus, and I get it first!</div>
+<div tabindex="2">I get keyboard focus, and I get it second!</div>
+
 
 
 <!--!=EJEMPLOS=Y=EXPLICACIONES===================================================-->
@@ -276,11 +280,14 @@ The best day to host the vaunted Mortal Kombat tournament is
     * Enlaces
     * Botonos
     * form controls (submit)
-* tabindex: si pulsamos tabulador en una página, el "focus" va cambiando a control forms
+* tabindex: 
+    * 0: Si pulsamos tabulador en una página, el "focus" va cambiando a control forms
     botones, input fields etc de manera automática. Al asignar a un elto el atribuo tabdindex=0 le damos
     también esta capacidad. Así, podríamos usarlo en <div><p> o <span>
-    * Si le damos tabindex= -1 u otro valor negativo, el elemento es focuseable pero no por el 
+    * -1: Si le damos tabindex= -1 u otro valor negativo, el elemento es focuseable pero no por el 
       teclado, se usa para ventanas emergentes. 
+    * +1,+2,.. Dándole distintos valores positivos establecemos prioridad. Primero se mueve al 1, 2 etc.
+      antes de moverse a los eltos 0.
 
 
 

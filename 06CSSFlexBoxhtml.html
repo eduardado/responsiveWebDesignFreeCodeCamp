@@ -1,0 +1,401 @@
+# Responsive Web Design Certification
+## CSS Flex Box
+Start:      xx/xx/20xx
+Pomodoros:  
+<!-- todo
+todo Bookmark: https://www.freecodecamp.org/learn/responsive-web-design/css-flexbox/align-elements-using-the-justify-content-property
+todo No me ha quedado claro el tema de justify-content + align-items con los ejes etc. 
+-->
+
+Notas: 
+* Este documento usa la extension Better Comments de Visual Studio Code
+* Sugerencia Usar contrl + f + = + MAP/SINTAXIS/EJEMPLOS para saltar entre secciones
+* Uso comentarios con colores
+<!--
+    !
+    TODO
+    ?
+    *
+-->
+
+### Tabla de contenidos
+
+
+
+<!--*=MAP========================================================-->
+
+-- Atributos/eltos/clases en la lección--
+--Flexbox attributes--
+
+--Flex container(parent)--
+* display
+    * flex
+* flex-direction (assign axis)
+    * row [default]
+    * row-reverse
+    * column
+    * column-reverse
+* justify-content (main-axis)
+  * flex-start [default]
+  * center
+  * flex-end
+  * space-between
+  * space-around
+  * space-evenly
+* align-items (cross-axis)
+  * stretch [default]
+  * center
+  * flex-start
+  * flex-end
+  * baseline
+* flex-wrap
+  * nowrap [default]
+  * wrap
+  * wrap-reverse
+
+  
+  --Flex item(child)
+  * flex-grow
+  * 1,2,3 etc.
+  * flex-shrink
+    * 1,2,3 etc.
+  * flex-basis
+    * auto
+    * px
+    * em
+    * %
+  * flex: x y z
+    * x: grow
+    * y: shrink
+    * z: basis
+  * order
+    * 1, 2, etc
+  * align-self
+    * stretch [default]
+    * center
+    * flex-start
+    * flex-end
+    * baseline
+
+
+
+-- Atributos/eltos/clases de repaso --
+* border
+* <header>
+* <footer>
+* float
+* clear
+  * both
+* vertical-align
+
+
+
+<!--?=SINTAXIS===================================================-->
+
+<!-- display flex-->
+
+  #box-container {
+    display: flex;
+  }
+
+<!-- Rellenar espacios del main axis
+  - Situación: el main axis es row
+  - Queremos posicionar dos flex box dentro de otro flex box padre
+-->
+<style>
+  #box-container {
+  display: flex;
+  justify-content: center;
+}
+</style>
+<!--flex shrink-->
+<style>
+    #box-1{
+      flex-shrink:1;
+    }
+    #box-1{
+      flex-shrink:2;
+    }
+</style>
+
+<!--flex shorthand-->
+
+
+
+<!--todo =TEORÍA=====================================================================-->
+* display: flex
+  * Convierte un elto enun flex container y puede usar otras
+    propiedades flex.
+  * Por defecto los eltos hijos se expresan en "row"
+    * al poner display: flex; estamos el browser interpreta también flex-direction: row;
+* Flex-direction de css flexbox a row o column
+    los hijos de dicho elemento se organizarán en filas o columnas respectivamente.
+* Flexbox ejes:   
+    https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg
+* Justify-content
+* flex-wrap
+  * wrap : los eltos extra van a otra línea/columna (dependiendo del main axis)
+  * nowrap [default]
+  * wrap-reverse
+* flex-shrink flex-grow y flex-basis se aplican a eltos hijos(flex items), el resto
+  se aplica a elementos padre flex containers.
+* flex-shrink 
+  * Los eltos hijos se reducen cuando no quepan en el container.
+  * 3 vs 1: el elto que tenga valor 3 se reducirá 3 veces más que el 1.
+* flex-grow : lo contrario a flex-shrink
+* flex-basis
+* Si no le damos anchura a un elto y solo altura, no aparecerá. Si usamos flex-basis: 10em si aparecerá
+  porque hace referencia al elto padre.
+* Aclaración: cuántos px son 10em?
+  * La base, si no se indica son 16px, así, 10em es diez veces la base que es 160px.
+*  float, clear, vertical-align no funcionan con flex box.
+* align-self
+  * Permite ajustar cada flex item (hijo) individualmente en lugar de en grupo (align-items)
+  * Tiene los mismos valores que align-items
+  * Sobreescribe elign-itms
+
+<!--!=EJEMPLOS======================================================================== -->
+
+<!--align-self-->
+* Sirve para organizar los eltos cross axis pero uno a uno en lugar de en grupo.
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    align-self:center;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    align-self: flex-end;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+
+<!--order
+  En el ejemplo, se altera el orden natural de pintar los eltos. Se pinta primero la caja 2
+    porque tiene order: 1.
+-->
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    order : 2;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    order: 1;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+
+<!-- flex shorthand
+  - Sobre el ejemplo
+    caja 1:
+      * crecerá 2 veces más rápido que caja 2
+      * decrecerá 2 veces más rápido que caja 2
+    Basis es 150px para caja 1 + 150px para caja 2 = 300px
+      El crecimiento decrecimiento ocurrirá por debajo o por encima de la suma de los dos basis.
+
+-->
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    flex: 2 2 150px;
+    height: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    flex: 1 1 150px;
+    height: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+<!-- flex wrap-->
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 25%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 25%;
+    height: 50%;
+  }
+  #box-3 {
+    background-color: violet;
+    width: 25%;
+    height: 50%;
+  }
+  #box-4 {
+    background-color: yellow;
+    width: 25%;
+    height: 50%;
+  }
+  #box-5 {
+    background-color: green;
+    width: 25%;
+    height: 50%;
+  }
+  #box-6 {
+    background-color: black;
+    width: 25%;
+    height: 50%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+  <div id="box-3"></div>
+  <div id="box-4"></div>
+  <div id="box-5"></div>
+  <div id="box-6"></div>
+</div>
+
+<!-- Flex shrink-->
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 100%;
+    height: 200px;
+    flex-shrink:1;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 100%;
+    height: 200px;
+    flex-shrink: 2;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+<!-- flex grow-->
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    height: 200px;
+    flex-grow: 1;
+
+  }
+
+  #box-2 {
+    background-color: orangered;
+    height: 200px;
+    flex-grow: 2;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+
+
+<!-- todo Organizar CSS-->
+
+<!-- Aplicar lo mismo a dos eltos que estan dentro de otro elto
+  - La coma para aplicar a dos eltos
+  - Elemento1 Elemento2 : sólo aplica el estilo al Elemento2 cuando se encuentra anidado
+    en elto 1.
+-->
+  <style>
+    header h3, header h4 {
+        margin: 0;
+    }
+  </style>
+
+<!--  
+    - elto1 clase elemento2
+      - Aplica estilo al texto dentro del elemento 2 que a su vez estén dentro de elto1
+        pero sólo si expresan la clase.
+-->
+<style>
+    footer .stats strong {
+    font-size: 18px;
+  }
+</style>
+
+<!-- 
+  elto clase1 clase 2
+    - Aplica estilo a 2 clases distintas que se encuentren bajo el elto
+-->
+<style>
+    footer .stats .likes {
+        margin-left: 10px;
+      }
+</style>
+
+<!-- 
+   1. aplica estilo a dos elementos
+   2. aplica estilo distinto a una clase de uno de los eltos 
+-->
+<style>
+    header, footer {
+    display: flex;
+    flex-direction: row;
+  }
+  header .profile-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+</style>

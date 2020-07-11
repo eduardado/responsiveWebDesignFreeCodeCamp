@@ -8,4 +8,4 @@ Voy a usar este repositorio con dos objetivos:
 
 ## Nota
 Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(pluggin)
-[Imgur](https://i.imgur.com/jaFcsBA.png)
+![Imgur](https://i.imgur.com/jaFcsBA.png)

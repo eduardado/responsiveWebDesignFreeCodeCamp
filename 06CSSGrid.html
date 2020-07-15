@@ -1,7 +1,7 @@
 # Responsive Web Design Certification
 ## CSS Grid
 Start:  11/07/2020 22:50
-Pomodoros:  
+Pomodoros:  7
 Notas: 
     * "Better Comments" ; Visual Studio Code
     * Uso comentarios con colores
@@ -11,11 +11,13 @@ Notas:
 * display
     * grid
 * grid-template-columns
+    * repeat(n,px)
     * px, em etc.
     * fr
     * auto
     * % 
 * grid-template-rows
+    * repeat(n,px)
 * grid-column-gap
 * grid-row-gap
 * grid-gap
@@ -45,10 +47,20 @@ Notas:
     * center
     * end
 * grid-area 
+    * A/B/C/D
+    * areaName
 
+<!--todo funciones-->
 
+* repeat(A,unit)
+    * auto-fill
+* minmax()
 
+<!--todo media querys-->
+@media (condition){}
 
+<!--todo otros-->
+* min-height
 
 <!--?=SINTAXIS===================================================-->
 <!--
@@ -94,6 +106,46 @@ Notas:
     }
 </style>
 
+<!-- otro uso de grid-area: custom area on the fly-->
+<style>
+    .item1{
+        grid-area: 1/1/2/4;
+    }
+</style>
+
+<!--  repeat()
+    - equivalentes
+    -->
+<style>
+    .item1{
+        grid-template-rows: repeat(2, 1fr 50px) 20px;
+        grid-template-rows: 1fr 50px 1fr 50px 20px;
+    }
+</style>
+
+<!--minmax()
+    - Estamos declarando 2 items
+-->
+<style>
+    .item1{
+        grid-template-columns: 100px minmax(50px,200px);
+    }
+</style>
+
+<!-- media querys-->
+<style>
+
+    @media (max-width: 500px){
+        .container{
+            grid-template-areas:
+        "header header"
+        "advert content"
+        "footer footer";
+        }
+    }
+</style>
+
+
 <!--todo=Teoría==================================================-->
 * Grid containers: padre
 * Grid items : hijos
@@ -123,7 +175,235 @@ Notas:
 * grid-template-areas: divide el grid en areas y le da nombres:
     . -> área vacía
     * cada fila va entre comillas dobles
+* grid-template-rows
+* grid-area
+    1. grid-area: nombre;-> Asigna un/unas areas a un elto. 
+        * Necesita previa asginación de áreas con grid-template-areas
+    2. grid-areA: A/B/C/D
+        * A: linea horizontal comienzo
+        * B: línea vertical comienzo
+        * C: línea horizontal fin
+        * D: línea vertical fin
+* repeat(A, unit) función que permite repetir un patrón A veces con unit unidades
+    * auto-fill : opcion de repeat. en lugar de poner un número de columnas esto hace que siempre que haya 
+        espacio crea más.
+    * auto-fit: opción de repeat. siempre que haya espacio expande los grid.
+    * grid-template-rows: vuelve 
+    * grid-template-columns:
+* minmax(A,B) sirve en los mismos casos que el anterior:
+    * Al declarar un tamaño de columna o fila con minmax(A,B) le estamos dando un valor mínimo y 
+        un valor máximo al item(hijo) para cuando cambie el contenedor de tamaño tenga unos topes.
+* Al transformar un elto en un grid sólo afecta a sus hijos directos
+* Al transformar un hijo directo de un grid en un grid producimos un grid
+  dentro de un grid.
 
 
 
 <!--!=EJEMPLOS===================================================-->
+
+<!-- repeat + autofill
+    - La diferencia entre el contenedor 1 y 2 es que en el 1, como tiene auto-fill en el grid-template-columns
+        hace que meta todas las celdas posibles en la misma fila si el contenedor lo permite mientras que en el
+        contenedor 2 al estar fijado el grid-template-columns a 3 sólo pondrá 3 celdas por columna.
+-->
+<style>
+    .item1{background:LightSkyBlue;}
+    .item2{background:LightSalmon;}
+    .item3{background:PaleTurquoise;}
+    .item4{background:LightPink;}
+    .item5{background:PaleGreen;}
+  
+    .container {
+      font-size: 40px;
+      min-height: 100px;
+      width: 100%;
+      background: LightGray;
+      display: grid;
+      /* Only change code below this line */
+  
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  
+      /* Only change code above this line */
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+  
+    .container2 {
+      font-size: 40px;
+      min-height: 100px;
+      width: 100%;
+      background: Silver;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(60px, 1fr));
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+  </style>
+  <div class="container">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+  </div>
+  <div class="container2">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+  </div>
+
+<!-- auto-fill vs auto-fit
+    * La diferencia entre auto-fill (container 1)  y auto-fit (container2) es que, cuando hay espacio suficiente en el contenedor
+    * para introducir todos los items, auto-fill les deja el tamaño de columna fijo y auto-fit los expande hasta ocupar todo el espacio 
+    * posible
+-->
+<style>
+    .item1{background:LightSkyBlue;}
+    .item2{background:LightSalmon;}
+    .item3{background:PaleTurquoise;}
+    .item4{background:LightPink;}
+    .item5{background:PaleGreen;}
+  
+    .container {
+      font-size: 40px;
+      min-height: 100px;
+      width: 100%;
+      background: LightGray;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+  
+    .container2 {
+      font-size: 40px;
+      min-height: 100px;
+      width: 100%;
+      background: Silver;
+      display: grid;
+      /* Only change code below this line */
+  
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  
+      /* Only change code above this line */
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+  </style>
+  
+  <div class="container">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+  </div>
+  <div class="container2">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+  </div>
+  
+  
+  <!-- media querys
+
+    1. Se crean 5 clases, cada una con un fondo distinto.
+    2. A cada clase se le da un nombre que tendrá sentido dentro del grid con grid-area: nombre;
+    3. Se establece un contenedor estándard, cuyo estilo se expresará siempre que no se den las
+      condiciones de los @media. 
+        Si vamos la configuración: grid-template-areas:
+          - son 4 filas: header, advert, content y footer.
+        Si vemos los tamaños: grid-template-rows: 
+          50px auto 1fr auto
+            50pixels
+            ajute a contenido
+            espacio disponible
+            ajuste a contenido
+    4. Hay 2 @media
+      * Cuando el ancho es 300px o mayor
+      - Se reconfigura el grid a dos columnas: grid-template-columns: auto 1fr.
+        - auto: la columna de la izquierda se ajusta al contenido
+        - 1fr: la columna de la derecha ocupa todo el espacio disponible
+      - Se reconfigura el grid de las filas a 3-< grid-template-rows:
+        - contenido
+        - disponible
+        - contenido
+      - Se reconfigura el área que ocupa cada área en el grid
+        - advert ocupa toda la parte izq
+        - en la columna derecha primero está header luego content y luego footer.
+
+      * Cuandlo el ancho es 400 px o mayor
+        Reconfigura las áreas:
+        - 
+  -->
+
+
+  <style>
+    .item1 {
+      background: LightSkyBlue;
+      grid-area: header;
+    }
+  
+    .item2 {
+      background: LightSalmon;
+      grid-area: advert;
+    }
+  
+    .item3 {
+      background: PaleTurquoise;
+      grid-area: content;
+    }
+  
+    .item4 {
+      background: lightpink;
+      grid-area: footer;
+    }
+  
+    .container {
+      font-size: 1.5em;
+      min-height: 300px;
+      width: 100%;
+      background: LightGray;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px auto 1fr auto;
+      grid-gap: 10px;
+      grid-template-areas:
+        "header"
+        "advert"
+        "content"
+        "footer";
+    }
+  
+    @media (min-width: 300px){
+      .container{
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+          "advert header"
+          "advert content"
+          "advert footer";
+      }
+    }
+  
+    @media (min-width: 400px){
+      .container{
+        grid-template-areas:
+          "header header"
+          "advert content"
+          "footer footer";
+      }
+    }
+  </style>
+  
+  <div class="container">
+    <div class="item1">header</div>
+    <div class="item2">advert</div>
+    <div class="item3">content</div>
+    <div class="item4">footer</div>
+  </div>
+  

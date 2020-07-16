@@ -10,5 +10,5 @@ Voy a usar este repositorio con dos objetivos:
 Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(pluggin)
 ![Imgur](https://i.imgur.com/jaFcsBA.png)
 
-## Proyectos 
+## Proyectos finalizados
 1. [Tribute Page ](https://codepen.io/eduardado/pen/MWKqRpe)

@@ -61,13 +61,11 @@ Animation
         * %
     * height
     * font-weight
-    * bold
+      * bold
     * text-decoration: 
-    * underline
-    * text-decoration: 
-    * line-through
+      * underline
+      * line-through
     * font-style
-    * italic
     * box-shadow
         * offset-x
         * offset-y
@@ -205,9 +203,9 @@ Ejemplo
     <h1>Welcome!</h1>
     <section>
         <form id="searchbar">
-        <label for="search">Search:</label>
-        <input type="search" id="search" name="search">
-        <input type="submit" name="submit" value="Go!">
+          <label for="search">Search:</label>
+          <input type="search" id="search" name="search">
+          <input type="submit" name="submit" value="Go!">
         </form>
     </section>
 </body>
@@ -499,7 +497,7 @@ Ejemplo de transform con más de una función:
 
   <!-- Crescent moon shape with box-shadow
     - Se crea un bloque div
-    - Se le forma redonda con border-radius : 50%
+    - Se le da forma redonda con border-radius : 50%
     - Se le da sombra con box-shadow y se elimina el blur y el spread
     - Se le pone un poquito de offset x e y a la sombra
     - Se pone el div transparente
@@ -526,9 +524,9 @@ Ejemplo de transform con más de una función:
   <!--Pseudo Elements ::before ::after-->
   * Se usan para añadir algo antes o después de un elemento
   * Necesitan incorporar el atributo content(aunque esté vacío)
-    * Se suele usan para añadir una foto o un texto
-    * Cuando los pseudoelementos se usan pra producir formas,
-        se le da a content el valor de un String vacío content=  ;
+    * Se suele usar para añadir una foto o un texto
+    * Cuando los pseudoelementos se usan para producir formas,
+        se le da a content el valor de un String vacío 
     * Al pintar figuras lo que hace es clonar la clase inicial en 2 más
         con las que podemos jugar (ver corazón con ::before & ::after)
             
@@ -955,10 +953,11 @@ Detalles:
   <div id="back"></div>
   <div class="star-1 stars"></div>
   <div class="star-2 stars"></div>
+
   <!-- 3 estrellas titilan: animation-duration 
     * Esta vez, en lugar de crear varias animaciones, una para cada estrella, se genera una sola animación llamada
     * twinkle. En cada estrella se le dice que la animación se llama twinkle pero la duración cambia ligeramente.
--->
+  -->
   <style>
     .stars {
       background-color: white;

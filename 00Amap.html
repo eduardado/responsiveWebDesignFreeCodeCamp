@@ -1,7 +1,7 @@
 # MEGAMAP
 Descripción: Un mapa conceptual de todo el código visto en el curso, sin ejemplos ni explicaciones.
 Start:  15/07/2020
-
+Pomodoros: 
 Notas: 
     * "Better Comments" ; Visual Studio Code
     * Uso comentarios con colores
@@ -81,7 +81,8 @@ Unidades
 Selectores
     id -> # {}
     clase -> .{}
-    [attr=value]
+    [attr=value]{}
+    :root{}
 
 <!--todo CSS ATRIBUTOS-->
     * color: red;
@@ -102,3 +103,21 @@ Selectores
     * margin
         * px
         * -px
+
+<!-- todo COLORES-->
+* hexadecimal RGB
+    #RRGGBB
+        * 0-F
+            * ejemplo: color: #FFA500
+* hexadecimal corto
+    #RGB
+        * 0-F
+            * ejemplo: #0f0
+* rgb(0-255, 0-255, 0-255)
+    * Ejemplo: rgb(255, 165, 0)
+
+<!-- todo variables en css-->
+Declaración:
+    --nombre-variable: valor;
+Uso
+    propiedadCSS: var(--nombre-variable, valorFallBack)

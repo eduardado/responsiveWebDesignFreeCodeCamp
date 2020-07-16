@@ -11,4 +11,4 @@ Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(plug
 ![Imgur](https://i.imgur.com/jaFcsBA.png)
 
 ## Proyectos finalizados
-1. [Tribute Page ](https://codepen.io/eduardado/pen/MWKqRpe)
+1. [Tribute Page ](https://codepen.io/eduardado/full/MWKqRpe)

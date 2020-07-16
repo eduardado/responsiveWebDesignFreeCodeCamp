@@ -21,6 +21,10 @@ Notas:
         <p id="enlaceInterno"></p>
 * ul/ol
     * li
+
+------
+Forms
+------
 * label
     * for
 * form
@@ -31,6 +35,7 @@ Notas:
         * text
         * radio
         * checkbox
+        * search
     * placeholder
     * required (no value)
     * checked (no value)
@@ -38,6 +43,12 @@ Notas:
 * button
     * type
         * submit
+
+* em
+* u
+* strong
+* s
+
 
 <!--todo HTML5-->
 <html>
@@ -61,11 +72,16 @@ Notas:
     </body>
 </html>
 
+<figure>
+    <figcaption></figcaption>
+</figure>
+
 <!-- todo ORDEN DE HERENCIA-->
 important! > in-line > id > class 
 
 <!-- todo RULES-->
 @media
+@keyframe
 
 <!--todo UNIDADES-->
 Unidades
@@ -84,11 +100,27 @@ Selectores
     [attr=value]{}
     :root{}
 
+<!-- todo Pseudo clases-->
+* :hover
+  :visited
+<!--todo Pseudo elementos-->
+::before
+::after
+
 <!--todo CSS ATRIBUTOS-->
-    * color: red;
-    * font-size: large;
-    * width
+    * color
+    * font-size
     * font-family
+    * font-weight
+        * normal (400)
+        * bold (700)
+        * 0-900
+    * text-decoration
+        * line-through
+        * underline
+    * font-style
+    * width
+    * height
     * border-color
     * border-width
     * border-style
@@ -100,9 +132,62 @@ Selectores
         * PX
         * %
     * background-color
+        * transparent
+        * liner-gradient()
+        * repeating-linear-gradient()
+        * url()
+        
     * margin
         * px
         * -px
+        * auto
+    * text-align
+        * center;
+        * justify;
+        * right;
+        * left;
+    * box-shadow
+        * offset-x
+        * offset-y
+        * blur-radius
+        * spread-radius
+        * color
+    * Opacity
+        * 0.1-1
+    * text-transform
+        * lowercase
+        * uppercase
+        * capitalize
+        * inherit
+    * position
+        * relative:
+            offset:
+                * bttom
+                * left
+                * right
+                * bttom
+        * absolute
+        * fixed
+    * float
+        * left
+        * right
+    * z-index
+        * integer
+    * display
+        * block
+        * inline
+    * background
+        * linear-gradient()
+        * repeating-linear-gradient()
+        * url()
+    * transform
+        * scale()
+        * skewX()
+            * deg
+        * skewY()
+            * deg
+        * rotate ()
+            * deg
 
 <!-- todo COLORES-->
 * hexadecimal RGB
@@ -115,9 +200,27 @@ Selectores
             * ejemplo: #0f0
 * rgb(0-255, 0-255, 0-255)
     * Ejemplo: rgb(255, 165, 0)
+* hsl (hue,saturation,brightness) - (0-160, 0-100%, 0-100%)
+
 
 <!-- todo variables en css-->
 Declaración:
     --nombre-variable: valor;
 Uso
     propiedadCSS: var(--nombre-variable, valorFallBack)
+
+<!-- todo ANIMACIÓN-->
+@keyframe
+    0-100%{}
+* animation-name
+* animation-duration
+    * s/ms
+* animation-iteration-count
+    * integer
+    * infinite
+* animation-timing-function
+    * ease
+    * ease-in
+    * ease-out
+    * linear
+    * cubic-bezier()

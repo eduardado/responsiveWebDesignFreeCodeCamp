@@ -40,3 +40,509 @@ User Story #14: Inside the form element, I can select several fields from a seri
 User Story #15: Inside the form element, I am presented with a textarea at the end for additional comments.
 
 User Story #16: Inside the form element, I am presented with a button with id="submit" to submit all my inputs.
+
+#### Mi proyecto: html
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"> 
+
+<h1 id="title">Accountability Enrollment Form</h1>
+<p id="description">Commit to yourself</p>
+
+<div id = "form-box">
+<form id="survey-form" action="#">
+  <label for = "name" id="name-label">Name</label><br>
+  <input 
+         id = "name" 
+         type = "text" 
+         name = "name"
+         placeholder = "Enter your name"
+         size = "50"
+         required
+  >
+  <br>
+  
+  <label for = "email" id="email-label">Email</label><br>
+  <input 
+         id = "email"
+         type = "email"
+         name = "email"
+         placeholder = "Enter your Email"
+         size = "50"
+         required
+  ><br>
+  <label for = "number" id="number-label">Age (optional)</label><br>
+  <input 
+         id = "number"
+         type = "number"
+         name = "number"
+         placeholder = "Number of Challenges 1-10"
+         min = "18"
+         max = "150"
+         size = "50"
+  ><br>
+  
+  <label for = "dropdown"> Type of challenge</label><br>
+  <select id = "dropdown" >
+    <option>Writting</option>
+    <option>Reading</option>
+    <option>Studying</option>
+    <option>Fitness</option>
+  </select><br>
+  
+  <h3>Will you succeed?</h3>
+    <div id="succeed-box">
+    <label for = "sure">Sure</label>
+  <input 
+         id = "sure"
+         type = "radio" 
+         name = "success"
+         value = "1"
+   ><br>
+    <label for = "unsure">Unsure</label>
+   <input
+          id = "unsure"
+          type = "radio"
+          name = "success"
+          value = "0"
+   >
+    </div>
+  <h3>What pushed you to start this challenge?</h3>
+ 
+  <input
+         id = "peer pressure"
+         type = "checkbox"
+         name = "reason"
+         value = "peer pressure"
+  >
+  <label for = "peer pressure">Peer pressure</label>
+  
+  <input
+         id = "parents"
+         type = "checkbox"
+         name = "reason"
+         value = "parents
+  >
+  <label for = "parents">Parents</label>                  
+  
+  <input
+         id = "law enforcement"
+         type = "checkbox"
+         name = "reason"
+         value = "law enforcement"
+  >
+  <label for = "law enforcement">Law Enforcement</label>
+                                                                   
+<h3>How will you accomplish this challenge?</h3>
+<label for ="plan">Plan</label><br>
+<textarea 
+     id ="plan" 
+     name="plan"
+     rows="6"
+     cols = "30"
+     placeholder= "Enter your plan here..."
+>
+      
+</textarea><br>
+
+<input 
+  type = "submit"
+  id = "submit" 
+  value ="Submit">
+ 
+                
+</form>
+</div>
+
+#### Mi proyecto CSS
+body{
+    background-image: url(https://i.imgur.com/tQFaJZo.jpg);
+    color:white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #1c1e30;
+    background-position: center;
+    font-family: Nova Square;
+  }
+  #form-box{
+    background-color: rgba(50, 209, 199,0.5);
+    padding: 10px;
+    width: 800px;
+    margin: auto;
+  }
+  h1,p{
+    text-align: center;
+  }
+  #survey-form{
+    text-align:center;
+  }
+  input[type], textarea, select{
+    border-radius: 5px;
+  }
+  #dropdown{
+    width: 320px;
+  }
+  #succeed-box{
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+    background:rgba(50, 209, 199);
+    width: 320px;
+    opacity: 0.8;
+  }
+
+#### Aprendizaje sobre el proyecto de muestra
+1. @import para las fuentes
+2. Se puede usar :root{} para guardar todos los colores que se usan
+<style>
+    :root{
+        --color-white: #f3f3f3;
+        --color-darkblue: #1b1b32;
+    }
+</style>
+3. Segunda letra en font-family para tener un respaldo.
+font-family: 'Nova Square', sans-serif;
+4. Para luego usar los colores que hemos declarado como variables
+    en :root
+<style>
+    .ej{
+        color: var(--color-white);
+    }
+</style>
+5. box-sizing: border-box; Esta propiedad con este valor permite
+    hacer comparables distintos tamaños de cajas.
+    <style> 
+        .div1 {
+          width: 300px;
+          height: 100px;
+          border: 1px solid blue;
+          box-sizing: border-box;
+        }
+        
+        .div2 {
+          width: 300px;
+          height: 100px;  
+          padding: 50px;
+          border: 1px solid red;
+          box-sizing: border-box;
+        }
+    </style>
+    
+    Si pintamos dos cajas con estas dos clases, el tamaño de las cajas
+    es el mismo porque bordex-box hace que el padding no se sume al tamaño final de la caja.
+
+6. Aplicar border-box a todos los elementos. De esta manera se aplica la propiedad y el valor
+    a todos los elementos.
+        <style>
+            *,
+            *::before,
+            *::after {
+            box-sizing: border-box;
+        }
+    </style>
+    Hay una manera alternativa que por lo visto funciona mejor con pluggins:
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+    </style>
+7. Usar <header></header> Para el h1 y su descripción
+8. Hacer una clase text-center con text-align:center e ir usando la clase para los
+    textos que queramos centrados.
+9. En el body usa un font-size: 1rem; viene de "root element", es decir es el mismo tamaño de letra
+    que tenga el elto raíz. Después va haciendo múltiplos de este tamaño de letra 1.2 rem 1.8 rem etc.
+10. Usar el @import del google fonts en el css en lugar del enlace en el html
+11. Una alternativa mobile-friendly al uso del background
+    1. Usa el pseudoelemento ::before con el body y le asigna el z-index: -1
+      así puede tener 2 body, uno para aplicar los estilos a las letras y otro para la imagen de fondo.
+    2. Pone content con String vacío(obligatorio)
+    3. top y left a cero para que empiece justo en la esquina
+    4. height y width 100% para que ocupe todo el fondo
+    5. 
+<style>
+
+  body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  </style>
+
+12. Pone 2 imágenes de fondo separadas por coma
+    1. Una es un degradado usando linear-gradient
+      1. Le da cierta transparencia para que se vea el fondo
+    2. La otra es la url de una foto
+13. Hace una clase llamada form-control y en ella va estandarizando todo lo relacionado
+  con los elementos del form
+  <style>
+  .form-control{
+    display:block;
+    width: 80%;
+    height: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 
+      width 0.5s  ,
+      border-color 0.5s ;
+  }
+  </style>
+
+  #### Retocado después de aprender del modelo
+
+  ##### HTML
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+
+<div class="container">
+  <header class="header">
+    <h1 id="title" class="text-center">Accountability Enrollment Form</h1>
+    <p id="description" class="text-center description">Commit to yourself</p>
+  </header>
+
+<form id="survey-form">
+  
+   <div class = "form-group">
+      <label for = "name" id="name-label">Name</label>
+      <input 
+             id = "name" 
+             type = "text" 
+             name = "name"
+             placeholder = "Enter your name"
+             size = "50"
+             class = "form-control"
+             required
+    >
+  </div>
+  
+  
+  <div class="form-group">
+    <label for = "email" id="email-label">Email</label>
+    <input 
+           id = "email"
+           type = "email"
+           name = "email"
+           placeholder = "Enter your Email"
+           size = "50"
+           class = "form-control"
+           required
+           >
+  </div>
+  
+  <div class="form-group">
+    <label for = "number" id="number-label">Age (optional)</label>
+    <input 
+           id = "number"
+           type = "number"
+           name = "number"
+           placeholder = "Number of Challenges 1-10"
+           min = "18"
+           max = "150"
+           size = "50"
+           class = "form-control"
+    >
+  </div>
+  
+  <label for = "dropdown"> Type of challenge</label><br>
+  <select id = "dropdown" class = "form-control">
+    <option>Writting</option>
+    <option>Reading</option>
+    <option>Studying</option>
+    <option>Fitness</option>
+  </select>
+  
+  <h3>Will you succeed?</h3>
+   <div id="succeed-box" class="succeed-box">
+    <label for = "sure">Sure</label>
+       <input 
+         id = "sure"
+         type = "radio" 
+         name = "success"
+         value = "sure"
+         class = "input-radio"
+    >
+    <label for = "unsure">Unsure</label>
+     <input
+            id = "unsure"
+            type = "radio"
+            name = "success"
+            value = "unsure"
+            class = "input-radio"
+     >
+    </div>
+  <h3>What pushed you to start this challenge?</h3>
+  <div id="succeed-box" class="succeed-box">
+    <input
+         id = "peer pressure"
+         type = "checkbox"
+         name = "reason"
+         value = "peer pressure"
+         
+    >
+    <label for = "peer pressure">Peer pressure</label>
+  
+    <input
+         id = "parents"
+         type = "checkbox"
+         name = "reason"
+         value = "parents
+    >
+                  <label for="parents">Parents</label>                 
+  
+    <input
+         id = "law enforcement"
+         type = "checkbox"
+         name = "reason"
+         value = "law enforcement"
+    >
+    <label for = "law enforcement">Law Enforcement</label>
+                              
+</div>       
+                                  
+<h3>How will you accomplish this challenge?</h3>
+
+<textarea 
+     id = "plan"
+     name = "plan"
+     placeholder = " Enter your plan here..."
+     class = "input-textarea"
+></textarea>
+
+  <input 
+    type = "submit"
+    id = "submit" 
+    value ="Submit"
+    class = "submit-button">
+ 
+    </form>
+  
+</div>
+
+##### CSS
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+:root{
+  --color-white: white;
+  --color-blue: #1c1e30;
+  --color-green: #02bb4e;
+  --color-transparent-blue: rgba(28, 30, 48,0.8); ;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Nova Square', sans-serif;
+  font-size:1rem;
+  color:white;
+  line-height:1.6;
+  background-color: var(--color-blue);
+  margin: 0;
+}
+
+/*background mobile-friendly*/
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(28, 30, 48,0.8),
+      rgba(2, 187, 78,0.5)
+    ),
+    url(https://i.imgur.com/tQFaJZo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.text-center{
+  text-align:center;
+}
+.description{
+  font-style:italic;
+}
+.form-control{
+  display:block;
+  width: 80%;
+  height: 2rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition:border-color 0.5s;
+}
+.form-control:focus{  
+  border-color: red;
+}
+
+/* Selector con atributo
+input[type], textarea, select{
+  border-radius: 5px;
+}
+*/
+
+.succeed-box{
+  padding: 10px;
+  border-radius: 5px;
+  margin: auto;
+  background:var(--color-green);
+  width: 100%;
+  opacity: 0.8;
+}
+.input-radio,
+.input-checkbox{
+  display: inline-block;
+}
+.input-textarea{
+  min-height:220px;
+  min-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  
+  padding: 0.65rem;
+}
+.submit-button{
+  cursor: pointer;
+  display:block;
+  background: var(--color-green);
+  color: inherit;
+  width: 100%;
+  height: 50px;
+}
+.form-group{
+  margin:  auto;
+  padding: 0.25rem;
+}
+form{
+  background: var(--color-transparent-blue);
+  border-radius: 15px;
+  padding: 2rem ;
+  width: 50%;
+  margin:auto;
+}
+

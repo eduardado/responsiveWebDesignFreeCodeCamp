@@ -30,11 +30,14 @@ Forms
     * id
 * form
     * action
-* input
+* input (self)
     * name
     * type
         * text
         * radio
+            * id
+            * name
+            * value
         * checkbox
         * search
         * email
@@ -44,6 +47,11 @@ Forms
     * placeholder
     * required (no value)
     * checked (no value)
+* select
+    * id
+    * name
+* option
+    * value
 * button
     * type
         * submit
@@ -88,6 +96,7 @@ important! > in-line > id > class
 <!-- todo RULES-->
 @media
 @keyframe
+@import
 
 <!--todo UNIDADES-->
 Unidades
@@ -106,15 +115,18 @@ Selectores
     [attr=value]{}
     :root{}
 
+
 <!-- todo Pseudo clases-->
-* :hover
+  :hover
   :visited
+  :focus
 <!--todo Pseudo elementos-->
 ::before
 ::after
 
 <!--todo CSS ATRIBUTOS-->
     * color
+    * line-height
     * font-size
     * font-family
     * font-weight
@@ -142,10 +154,12 @@ Selectores
         * liner-gradient()
         * repeating-linear-gradient()
         * url()
+    * background-clip
+        * padding-box;
         
     * margin
         * px
-        * -px
+        * -px:
         * auto
     * text-align
         * center;
@@ -182,6 +196,7 @@ Selectores
     * display
         * block
         * inline
+        * flex
     * background
         * linear-gradient()
         * repeating-linear-gradient()
@@ -194,6 +209,9 @@ Selectores
             * deg
         * rotate ()
             * deg
+    * box-sizing
+        * border-box
+    * transition
 
 <!-- todo COLORES-->
 * hexadecimal RGB
@@ -207,6 +225,7 @@ Selectores
 * rgb(0-255, 0-255, 0-255)
     * Ejemplo: rgb(255, 165, 0)
 * hsl (hue,saturation,brightness) - (0-160, 0-100%, 0-100%)
+* rgba(0-255,0-255,0-255,0-1)(red,green,blue, opacity)
 
 
 <!-- todo variables en css-->

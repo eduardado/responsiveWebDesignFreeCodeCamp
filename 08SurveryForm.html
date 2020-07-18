@@ -288,261 +288,396 @@ font-family: 'Nova Square', sans-serif;
     1. Una es un degradado usando linear-gradient
       1. Le da cierta transparencia para que se vea el fondo
     2. La otra es la url de una foto
-13. Hace una clase llamada form-control y en ella va estandarizando todo lo relacionado
-  con los elementos del form
-  <style>
+
+13. Cada elto del form lo engloba en un div distinto, y todos ellos hace que pertenezcan 
+    a una clase con la que controlará margin y padding
+<style>
+  .form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+</style>
+  1. margin con 4 valores es:
+    1. top left bottom right: se pone...
+14. En el select:
+  1. Se puede deshabilitar una opción con disable
+  2. se puede marcar una opción por defecto con selected
+  3. siempre hay que poner los value en cada opcion
+  4. No le pone label
+15. Form-control: le pone una clase a todos los inputs y el select.
+<style>
   .form-control{
-    display:block;
-    width: 80%;
-    height: 2rem;
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    transition: 
-      width 0.5s  ,
-      border-color 0.5s ;
-  }
-  </style>
-
-  #### Retocado después de aprender del modelo
-
-  ##### HTML
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-
-
-
-<div class="container">
-  <header class="header">
-    <h1 id="title" class="text-center">Accountability Enrollment Form</h1>
-    <p id="description" class="text-center description">Commit to yourself</p>
-  </header>
-
-<form id="survey-form">
-  
-   <div class = "form-group">
-      <label for = "name" id="name-label">Name</label>
-      <input 
-             id = "name" 
-             type = "text" 
-             name = "name"
-             placeholder = "Enter your name"
-             size = "50"
-             class = "form-control"
-             required
-    >
-  </div>
-  
-  
-  <div class="form-group">
-    <label for = "email" id="email-label">Email</label>
-    <input 
-           id = "email"
-           type = "email"
-           name = "email"
-           placeholder = "Enter your Email"
-           size = "50"
-           class = "form-control"
-           required
-           >
-  </div>
-  
-  <div class="form-group">
-    <label for = "number" id="number-label">Age (optional)</label>
-    <input 
-           id = "number"
-           type = "number"
-           name = "number"
-           placeholder = "Number of Challenges 1-10"
-           min = "18"
-           max = "150"
-           size = "50"
-           class = "form-control"
-    >
-  </div>
-  
-  <label for = "dropdown"> Type of challenge</label><br>
-  <select id = "dropdown" class = "form-control">
-    <option>Writting</option>
-    <option>Reading</option>
-    <option>Studying</option>
-    <option>Fitness</option>
-  </select>
-  
-  <h3>Will you succeed?</h3>
-   <div id="succeed-box" class="succeed-box">
-    <label for = "sure">Sure</label>
-       <input 
-         id = "sure"
-         type = "radio" 
-         name = "success"
-         value = "sure"
-         class = "input-radio"
-    >
-    <label for = "unsure">Unsure</label>
-     <input
-            id = "unsure"
-            type = "radio"
-            name = "success"
-            value = "unsure"
-            class = "input-radio"
-     >
-    </div>
-  <h3>What pushed you to start this challenge?</h3>
-  <div id="succeed-box" class="succeed-box">
-    <input
-         id = "peer pressure"
-         type = "checkbox"
-         name = "reason"
-         value = "peer pressure"
-         
-    >
-    <label for = "peer pressure">Peer pressure</label>
-  
-    <input
-         id = "parents"
-         type = "checkbox"
-         name = "reason"
-         value = "parents
-    >
-                  <label for="parents">Parents</label>                 
-  
-    <input
-         id = "law enforcement"
-         type = "checkbox"
-         name = "reason"
-         value = "law enforcement"
-    >
-    <label for = "law enforcement">Law Enforcement</label>
-                              
-</div>       
-                                  
-<h3>How will you accomplish this challenge?</h3>
-
-<textarea 
-     id = "plan"
-     name = "plan"
-     placeholder = " Enter your plan here..."
-     class = "input-textarea"
-></textarea>
-
-  <input 
-    type = "submit"
-    id = "submit" 
-    value ="Submit"
-    class = "submit-button">
- 
-    </form>
-  
-</div>
-
-##### CSS
-@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
-
-:root{
-  --color-white: white;
-  --color-blue: #1c1e30;
-  --color-green: #02bb4e;
-  --color-transparent-blue: rgba(28, 30, 48,0.8); ;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body{
-  font-family: 'Nova Square', sans-serif;
-  font-size:1rem;
-  color:white;
-  line-height:1.6;
-  background-color: var(--color-blue);
-  margin: 0;
-}
-
-/*background mobile-friendly*/
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  background: var(--color-darkblue);
-  background-image: linear-gradient(
-      115deg,
-      rgba(28, 30, 48,0.8),
-      rgba(2, 187, 78,0.5)
-    ),
-    url(https://i.imgur.com/tQFaJZo.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.text-center{
-  text-align:center;
-}
-.description{
-  font-style:italic;
-}
-.form-control{
   display:block;
-  width: 80%;
+  width: 100%;
+  color: var(--color-black);
   height: 2rem;
   padding: 1rem;
   border: 1px solid black;
   border-radius: 10px;
-  transition:border-color 0.5s;
+  transition: box-shadow 0.3s;
+
 }
 .form-control:focus{  
-  border-color: red;
+  box-shadow: 0 0 0 0.2rem var(--color-green-glow);
 }
-
-/* Selector con atributo
-input[type], textarea, select{
-  border-radius: 5px;
-}
-*/
-
-.succeed-box{
-  padding: 10px;
-  border-radius: 5px;
-  margin: auto;
-  background:var(--color-green);
-  width: 100%;
-  opacity: 0.8;
-}
-.input-radio,
-.input-checkbox{
-  display: inline-block;
-}
-.input-textarea{
-  min-height:220px;
-  min-width: 500px;
-  border-radius: 10px;
-  margin-bottom: 30px;
+</style>
+  1. Display: block nos evita el uso de <br> porque cambia los inline por defecto de los input.
+  2. color es el color de las letras
+  3. transition hace que cuando cambie el atributo box-shadow lo haga despacio en ese tiempo
+  4. form-control:focus: hace que cuando hagamos focus en un input se muestre un estilos. En este
+    caso se expresa una sombra.
+    1. La sombra tiene varios números que expresan como se extiende y al final el color.
   
-  padding: 0.65rem;
-}
-.submit-button{
-  cursor: pointer;
-  display:block;
-  background: var(--color-green);
-  color: inherit;
-  width: 100%;
-  height: 50px;
-}
-.form-group{
-  margin:  auto;
-  padding: 0.25rem;
-}
-form{
-  background: var(--color-transparent-blue);
-  border-radius: 15px;
-  padding: 2rem ;
-  width: 50%;
-  margin:auto;
-}
+16. Todos los botones y opciones dentro de cada parte del formulario tienen su propio <label>
+    Después, estos label están desplegados usando flexbox.
+<style>
+  label {
+  display: flex;
+  align-items: center;
 
+}
+</style>
+17. Los <label> deben envolver a los elementos para los estilos se apliquen también a los botones
+  <label for = "very-confident">
+    <input
+      name = "confident"
+      id = "very-confident"
+      type = "radio" 
+      value = "very-confident"
+      class = "input-radio"
+     >Very confident
+   </label>
+
+18. Responsive: Queremos que en pantallas grandes haya margen (en pantallas pequeñas es mejor que el formulario ocupe
+    toda la pantalla)
+   1. Hacemos un bloque que abarque todo el proyecto y le ponemos una clase container
+    <div class="container"></div>
+   2. Le damos un valor standard al container
+   <style>
+      .container {
+      width: 100%;
+      margin: 2rem auto 0 auto;
+    }
+   </style>
+  3. Hacemos dos condiciones usando @media: 1 para pantallas de más de 600px y otra para pantallas de más de 800px
+  <style>
+      @media (min-width: 600px) {
+      .container {
+        max-width: 570px;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .container {
+        max-width: 720px;
+      }
+    }
+  </style>
+  4. Entender que, si no se cumplen las condiciones mínimas en cada caso, el container va a ocupar el 100% de la pantalla, esto 
+    incluye el formulario, así que cuando estemos en un móvil el formulario ocupará toda la pantalla que es más cómodo para rellenar
+    los datos.
+
+
+  #### Versión final
+
+  ####HTML
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Accountability Enrollment Form</h1>
+      <p id="description" class="text-center description">Commit to yourself</p>
+    </header>
+  
+  <form id="survey-form">
+    <img src="https://i.imgur.com/uYho6qy.png" class="healthyGamer">
+     <div class = "form-group">
+        <label for = "name" id="name-label">Name</label>
+        <input 
+               id = "name" 
+               type = "text" 
+               name = "name"
+               placeholder = "Enter your name"
+               size = "50"
+               class = "form-control"
+               required
+      >
+    </div>
+    
+    
+    <div class="form-group">
+      <label for = "email" id="email-label">Email</label>
+      <input 
+             id = "email"
+             type = "email"
+             name = "email"
+             placeholder = "Enter your Email"
+             size = "50"
+             class = "form-control"
+             required
+             >
+    </div>
+    
+    <div class="form-group">
+      <label for = "number" id="number-label">Attempts</label>
+      <input 
+             id = "number"
+             type = "number"
+             name = "attempts"
+             placeholder = "Number of attempts"
+             min = "1"
+             max = "99"
+             class = "form-control"
+      >
+    </div>
+  
+    <div class="form-group">
+      <p>Which kind of challenge do you want to try?</p>
+      <select id = "dropdown" name ="challenge"  class = "form-control" required>
+        <option disabled selected>Select type of challenge</option>
+        <option value="writting" selected>Writting</option>
+        <option value="reading">Reading</option>
+        <option value="studying">Studying</option>
+        <option value="fitness">Fitness</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  
+    
+    
+    <!--Radio buttons-->
+    <p>How confident do you feel on achieve your goal?</p>
+    <div class="form-group green-box">
+         <label for = "very-confident">
+           <input
+             name = "confident"
+             id = "very-confident"
+             type = "radio" 
+             value = "very-confident"
+             class = "input-radio"
+            >Very confident
+          </label>
+        <label for = "confident">
+          <input
+                name = "confident"
+                id = "confident"
+                type = "radio"
+                value = "confident"
+                class = "input-radio"
+          > Confident
+        </label>
+      <label for = "unsure">
+        <input
+               name = "confident"
+               id = "unsure"
+               type = "radio"
+               value = "unsure"
+               class = "input-radio"
+        >Unsure
+      </label>
+     </div>
+    
+    <!--Checkboxes-->
+    <p>What pushed you to start this challenge?</p>
+    <div class="form-group green-box">
+        <label for = "peer pressure">
+          <input
+               id = "peer pressure"
+               type = "checkbox"
+               name = "reason"
+               value = "peer pressure"
+          >Peer pressure
+        </label>                         
+      <label for="dr-k">
+        <input
+             id = "dr-k"
+             type = "checkbox"
+             name = "reason"
+             value = "dr-k"
+        >Dr. K
+      </label>                           
+      <label for = "self-growth">
+        <input
+             id = "self-growth"
+             type = "checkbox"
+             name = "reason"
+             value = "self-growth"
+        >Self Growth
+      </label>                                  
+    </div>
+    
+                                    
+  
+  <div class="form-group">
+    <p>Describe your plan to accomplishing your goal</p>
+    <textarea 
+         id = "plan"
+         name = "plan"
+         placeholder = " Enter your plan here..."
+         class = "input-textarea"
+    ></textarea>
+   </div>
+  
+    <div class="form-group">
+      <input 
+        type = "submit"
+        id = "submit" 
+        value ="Submit"
+        class = "submit-button"
+      >
+    </div>
+      </form>
+    
+  </div>
+
+  #### CSS
+  @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+  :root{
+    --color-white: white;
+    --color-blue: #1c1e30;
+    --color-green: #02bb4e;
+    --color-green-glow: #80ffa0;
+    --color-transparent-blue: rgba(28, 30, 48,0.8);
+    --color-transparent-green: rgba(2, 187, 78,0.5);
+    --color-black: black;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: 'Nova Square', sans-serif;
+    font-size:1rem;
+    color: var(--color-white);
+    line-height:1.6;
+    background-color: var(--color-blue);
+    margin: 0;
+  }
+  
+  /*background mobile-friendly*/
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--color-darkblue);
+    background-image: linear-gradient(
+        45deg,
+        var(--color-transparent-blue),
+        var(--color-transparent-green)
+      ),
+      url(https://i.imgur.com/tQFaJZo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .text-center{
+    text-align:center;
+  }
+  .description{
+    font-style:italic;
+  }
+  
+  .form-group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+  }
+  
+  .form-control{
+    display:block;
+    width: 100%;
+    color: var(--color-black);
+    height: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+  
+  }
+  .form-control:focus{  
+    box-shadow: 0 0 0 0.2rem var(--color-green-glow);
+  }
+  
+  /* Selector con atributo
+  input[type], textarea, select{
+    border-radius: 5px;
+  }
+  */
+  
+  .green-box{
+    border-radius: 5px;
+    background:var(--color-green);
+    opacity: 0.8;
+    height: auto;
+    width: 100%;
+  }
+  .edu{
+    display: block;
+  }
+  .input-radio,
+  .input-checkbox{
+    display: inline-block;
+    margin-right: 1rem;
+    min-height: 1rem;
+    min-width: 1rem;
+  }
+  .input-textarea{
+    width:100%;
+    min-height: 120px;
+  }
+  .submit-button{
+    cursor: pointer;
+    display:block;
+    background: var(--color-green);
+    color: inherit;
+    width: 100%;
+    height: 50px;
+  }
+  
+  form{
+    background: var(--color-transparent-blue);
+    border-radius: 15px;
+    padding: 2rem ;
+    margin:auto;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /*Responsive
+    Queremos que en ventanas grandes haya margen
+  */
+  .container {
+    width: 100%;
+    margin: 2rem auto 0 auto;
+  }
+  
+  @media (min-width: 600px) {
+    .container {
+      max-width: 570px;
+    }
+  }
+  
+  @media (min-width: 800px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  .healthyGamer{
+    width: 20%;
+    heigth: auto;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    opacity: 0.8;
+  }
+  

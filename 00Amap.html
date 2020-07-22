@@ -21,6 +21,9 @@ Notas:
         <p id="enlaceInterno"></p>
 * ul/ol
     * li
+* a
+    * href
+    * target
 
 ------
 Forms
@@ -44,17 +47,28 @@ Forms
         * number
             * min
             * max
+        * submit
+            * value
     * placeholder
     * required (no value)
     * checked (no value)
 * select
     * id
     * name
-* option
+* option (dentro de select)
     * value
+    * disable
+    * selected
 * button
     * type
         * submit
+* iframe
+    * width
+    * height
+    * src
+    * frameborder
+    * allowfullscreen
+        
 
 
 
@@ -107,6 +121,7 @@ Unidades
     Relativas:
         * em
         * rem
+        * vw (%del viewport)
 
 <!-- todo SELECTORES-->
 Selectores
@@ -114,6 +129,8 @@ Selectores
     clase -> .{}
     [attr=value]{}
     :root{}
+
+    nav > ul { ( ul direct children of nav and not further)
 
 
 <!-- todo Pseudo clases-->
@@ -151,12 +168,8 @@ Selectores
         * %
     * background-color
         * transparent
-        * liner-gradient()
-        * repeating-linear-gradient()
-        * url()
     * background-clip
         * padding-box;
-        
     * margin
         * px
         * -px:
@@ -166,6 +179,8 @@ Selectores
         * justify;
         * right;
         * left;
+    * text-shadow
+        * 
     * box-shadow
         * offset-x
         * offset-y
@@ -174,6 +189,11 @@ Selectores
         * color
     * Opacity
         * 0.1-1
+    * list-style
+        * circle
+        * square
+        * upper-roman
+        * lower-alpha
     * text-transform
         * lowercase
         * uppercase
@@ -182,7 +202,7 @@ Selectores
     * position
         * relative:
             offset:
-                * bttom
+                * bottom
                 * left
                 * right
                 * bttom
@@ -196,6 +216,7 @@ Selectores
     * display
         * block
         * inline
+        * inline-block
         * flex
     * background
         * linear-gradient()
@@ -212,8 +233,7 @@ Selectores
     * box-sizing
         * border-box
     * transition
-
-<!-- todo COLORES-->
+        * attr seconds
 * hexadecimal RGB
     #RRGGBB
         * 0-F
@@ -249,3 +269,54 @@ Uso
     * ease-out
     * linear
     * cubic-bezier()
+
+<!--todo Flexbox-->
+<!--! Flex container-->
+* display
+    * flex
+* flex-direction (assign axis)
+    * row [default]
+    * row-reverse
+    * column
+    * column-reverse
+* justify-content (main-axis)
+  * flex-start [default]
+  * center
+  * flex-end
+  * space-between
+  * space-around
+  * space-evenly
+* align-items (cross-axis)
+  * stretch [default]
+  * center
+  * flex-start
+  * flex-end
+  * baseline
+* flex-wrap
+  * nowrap [default]
+  * wrap
+  * wrap-reverse
+
+  
+  <!--!Flex items-->
+  * flex-grow
+    * 1,2,3 etc.
+  * flex-shrink
+    * 1,2,3 etc.
+  * flex-basis
+    * auto
+    * px
+    * em
+    * %
+  * flex: x y z -> 0 1 auto [default]
+    * x: grow
+    * y: shrink
+    * z: basis
+  * order
+    * 1, 2, etc
+  * align-self
+    * stretch [default]
+    * center
+    * flex-start
+    * flex-end
+    * baseline

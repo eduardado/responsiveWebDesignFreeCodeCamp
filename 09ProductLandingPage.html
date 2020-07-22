@@ -1,0 +1,449 @@
+# Responsive Web Design Certification
+## Responsive Web Design Projects
+### Build a Product Landing Page
+Start:  18/07/2020 18:16
+Pomodoros: 25
+
+#### User Stories
+Objective: Build a CodePen.io app that is functionally similar to this: https://codepen.io/freeCodeCamp/full/RKRbwL.
+
+
+User Story #1: My product landing page should have a header element with a corresponding id="header".
+
+User Story #2: I can see an image within the header element with a corresponding id="header-img".
+A company logo would make a good image here.
+
+User Story #3: Within the #header element I can see a nav element with a corresponding id="nav-bar".
+
+User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link.
+
+User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page.
+
+User Story #6: I can watch an embedded product video with id="video".
+
+User Story #7: My landing page has a form element with a corresponding id="form".
+
+User Story #8: Within the form, there is an input field with id="email" where I can enter an email address.
+
+User Story #9: The #email input field should have placeholder text to let the user know what the field is for.
+
+User Story #10: The #email input field uses HTML5 validation to confirm that the entered text is an email address.
+
+User Story #11: Within the form, there is a submit input with a corresponding id="submit".
+
+User Story #12: When I click the #submit element, the email is submitted to a static page 
+(use this mock URL: https://www.freecodecamp.com/email-submit).
+
+User Story #13: The navbar should always be at the top of the viewport.
+
+User Story #14: My product landing page should have at least one media query.
+
+User Story #15: My product landing page should utilize CSS flexbox at least once.
+
+#### Terminado el proyecto no consigo:
+1. Hacer que un iframe del video youtube sea responsive
+2. Que el botón de submit mande la info a una dirección concreta
+    <!--!había que poner el atributo name en el input email para que funcionase el script-->
+3. Conseguir que la barra de navegación esté siempre en alto
+    1. No se combinar flexbox con position: relative/absolute/fixed 
+4. El comportamiento de la cabecera. A medida que se estrecha el viewport !!!
+    1. El navegador se apila
+    2. el navegador se pone por debajo del logo
+    3. Los elementos están siempre centrados
+    <!-- ! había que poner justify-content: space-around, de esa manera, cuando se apilan, al
+        ! ponerse el espacio alrededor, ambos elementos, quedan centrados, tanto el logo como
+    ! la barra de navegación -->
+    4. Antes de apilarse se separan
+
+#### PROYECTO TERMINADO SIN MIRAR EL CÓDIGO DE LA MUESTRA
+
+##### HTML
+
+
+<div class="container">
+  
+  <header id="header">
+    <div class="logo">
+      <img
+           id="header-img"
+           src="https://i.imgur.com/4fk8D7g.png"
+           alt="Magical Orb logo"
+           class="orb"
+       >
+       <h2>Kayros Orbs</h2>
+    </div>
+    <nav id="nav-bar" class="nav-bar">
+      <a id="nav-link" href="#features" class="nav-link"><span class="sou soul">Features</span></a>
+        <a id="nav-link" href="#video" class="nav-link"><span class="sou soul2">Testimonies</span></a>
+      <a id="nav-link" href="#pricing" class="nav-link"><span class="sou soul3">Pricing</span></a>
+    </nav>
+  </header>
+  
+  <section id="slogan" class="slogan">
+    <h1>Once in a lifetime!</h1>
+  </section>
+  
+  <section id=subscription>
+    <form id=form action="https://www.freecodecamp.com/email-submit"> 
+      <label for="email">
+        <input 
+             name="email"
+             id="email"
+             type="email" 
+             placeholder="Give us your SOUL (email)"
+             class="input-email"
+             required
+           >
+      </label>
+      <label for="submit">
+        <input
+            id="submit"
+            type="submit"
+            value="GET STARTED"
+            class="input-subscribe select-button"
+         >
+        </input>
+      </label>
+    </form>
+  </section>
+  
+  <section id="features" class="features">
+    <article>
+      <h2><span class="soul">Premium Materials</span></h2>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia atque ducimus consectetur veniam ullam quas            beatae explicabo obcaecati molestias nisi magni adipisci, reiciendis optio odit culpa omnis sapiente cumque?
+      </p>
+    </article>
+    <article>
+      <h2><span class="soul">Fast Shipping</span></h2>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia atque ducimus consectetur veniam ullam quas            beatae explicabo obcaecati molestias nisi magni adipisci, reiciendis optio odit culpa omnis sapiente cumque?
+      </p>
+    </article>
+    <article>
+      <h2><span class="soul">Quality Assurance</span></h2>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia atque ducimus consectetur veniam ullam quas            beatae explicabo obcaecati molestias nisi magni adipisci, reiciendis optio odit culpa omnis sapiente cumque?
+      </p>
+    </article>
+  </section>
+
+  
+  <section class="youtube-video">
+    <h2><span class="soul2">Aragorn satisfaction!</span></h2>
+    <iframe id="video"
+            src="https://www.youtube.com/embed/Oz_njsPDGRs?start=20"
+            frameborder="0"
+            >
+    </iframe>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="buy-option-box">
+      <h2><span class="soul3">Eye of the Ender</span></h2>
+      <img src="https://i.imgur.com/5NmpQPH.png" class="orb-type">
+      <h2><span>Price: </span><span class="soul4">Your soul</span></h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button class="select-button">SELECT</button>
+    </div>
+    <div class="buy-option-box">
+      <h2><span class="soul3">Palantir</span></h2>
+      <img src="https://i.imgur.com/OnYPm6M.jpg" class="orb-type">
+      <h2>Price: </span><span class="soul4"><u>Your son's soul</u></span></h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button class="select-button">SELECT</button>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer">
+    <div class="footer-links">
+      <a href="#"><h3>Privacy</h3></a>
+      <a href="#"><h3>Terms</h3></a>
+      <a href="#"><h3>Contact<h3></a>
+    </div>
+    <p>Copyright 2020, Kayros Orbs, <br>Terms apply<br>eduardado@gmail.com</p>
+  </footer>
+  
+</div>
+
+
+###### CSS
+/*Global element styling*/
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&display=swap');
+
+:root{
+  --color-blue: #23586a;
+  --color-dark-blue: #1b4452;
+  --color-red: #9f2f3b;
+  --color-black: #312a31;
+  --color-purple: #4f3c50;
+  --color-white: #dbefe6;
+  --color-yellow: yellow;
+  
+}
+
+.soul{
+  text-shadow: 0 0 10px var(--color-red);
+}
+.soul2{
+  text-shadow: 0 0 10px var(--color-blue);
+}
+.soul3{
+  text-shadow: 0 0 10px var(--color-blue);
+}
+.soul4{
+  text-shadow: 0 0 20px var(--color-yellow);
+}
+
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Shadows Into Light', Sans Serif;
+  color: var(--color-white);
+  background: linear-gradient(
+                 90deg,
+                 var(--color-blue),
+                 var(--color-purple),
+                 var(--color-red)) ;
+}
+body p{
+  font-family: Grenze Gotisch;
+  font-size: 1.2rem;
+}
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+}
+
+header{
+position:fixed;
+width: 100%;
+background: linear-gradient(
+                 90deg,
+                 var(--color-blue),
+                 var(--color-purple),
+                 var(--color-red)) ;
+top: 0;
+padding:0;
+margin:0;
+display: flex;
+justify-content: space-around;
+flex-wrap:wrap;
+border: 1px solid black;
+align-items: flex-end;
+}
+
+.soul{
+  text-shadow: 0 0 10px red;
+}
+.soul2{
+  text-shadow: 0 0 10px blue;
+}
+.soul3{
+  text-shadow: 0 0 10px green;
+}
+.soul4{
+  text-shadow: 0 0 20px yellow;
+}
+
+@media(max-width: 650px){
+  heading{
+    height: 50px;
+  }
+  .nav-bar{
+    flex-direction: column;
+  }
+  .separator{
+    margin:90px auto;
+  }
+  .sou{
+    font-size: 1rem;
+  }
+}
+
+header .logo{
+  display: flex;
+  justify-content: center;
+  margin:0px;
+  padding:0px;
+}
+header .orb{
+  aling-self: center;
+  width: 60px;
+  height: 50px;
+}
+header h2{
+  font-size: 1rem;
+}
+header .nav-bar{
+width: 280px;
+display: flex;
+align-items:center;
+flex-wrap: wrap;
+}
+header .nav-bar .nav-link{
+  margin-right: 5px;
+  color: var(--color-white);
+}
+
+/*SLOGAN*/
+.slogan{
+  margin-top: 40px;
+  text-align: center;
+}
+
+/*SUBSCRIPTION*/
+label{
+  margin: 10px;
+  display:flex;
+  justify-content:center;
+}
+.input-email{
+  height: 35px;
+  color: var(--color-black);
+  width: 300px;
+  text-align:center;
+  font-size: 1.2rem;
+  box-shadow: 0px 2px 5px black ;
+}
+.input-subscribe{
+  height: 30px;
+  font-weight:900;
+  background-color: var(--color-blue);
+  transition: background-color 0.5s;
+  border:none;
+  box-shadow: 0px 2px 5px black ;
+  border-radius: 5px;
+}
+.input-subscribe:hover{
+  background-color: var(--color-dark-blue);
+}
+
+/*FEATURES*/
+.features{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 5px;
+}
+.features article h2, p{
+  text-align: center;
+}
+
+/*VIDEO*/
+.youtube-video{
+  margin: 20px auto 20px auto;
+  padding: 5px;
+}
+.youtube-video h2{
+  text-align:center;
+}
+
+
+/*PRICING*/  
+.pricing{
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.pricing .buy-option-box{
+  width: 300px;
+  border: 1.8px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.pricing .buy-option-box h2{
+  text-align: center;
+  border-bottom: 1.8px solid black;
+}
+.pricing .orb-type{
+  height: 100px;
+  width: 100px;
+  align-self: center;
+}
+.sou{
+  font-size:1.5rem;
+}
+
+.pricing .select-button{
+  width: 150px;
+  height: 30px;
+  align-self: center;
+  margin-bottom: 5px;
+  background-color: var(--color-blue);
+  transition: background-color 0.5s;
+  border:none;
+  box-shadow: 0px 2px 5px black ;
+  border-radius: 5px;
+}
+.pricing .select-button:hover{
+  background-color: var(--color-dark-blue);
+}
+
+/*FOOTER*/
+.footer{
+  display:flex;
+  flex-direction: column;
+}
+
+.footer .footer-links{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer .footer-links a{
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.footer p{
+  text-align:right;
+  margin-top:0;
+  padding: 0;
+}
+
+
+
+
+
+
+##### Aprendizaje de estudiar el código del ejemplo:
+1. Se me olvidó el alt de la imagen
+2. Mete los anchor elements en <ul><li></li></ul>
+3. entre la cabecera y el resto hace un div vacío de class="container"
+4. usa la etiqueta <section> para dividir secciones del documento
+5. Usa <li> en lugar de <p></p>
+6. Separa el CSS por:
+    - Elementos globales
+    - Clases globales
+7. pone como position:relative al div que envuelve todos los eltos. ¿Por qué?
+    position:relative posiciona un elemento de manera relativa a donde debería estar. 
+    con los offset top, left bottom etc le damos otra posición. 
+8. #000 es negro
+9. No pone labels en los inputs :(--> mala praxis
+10. pone required en el email para que te lo exija
+11. Hay que poner el atributo name="" para que funcione el input de submit en el form!!!!!
+12. usa vw como unidad-> es un porcentaje del viewport o del tamaño de la venta
+13. Mezcla selectores por id con selectores por clase
+<style>
+  #features .icon {}
+</style>
+14. Usa > para seleccionar los hijos directos de un elemento
+<style>
+  nav > ul {}
+</style>  

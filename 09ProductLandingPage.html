@@ -2,7 +2,7 @@
 ## Responsive Web Design Projects
 ### Build a Product Landing Page
 Start:  18/07/2020 18:16
-Pomodoros: 25
+Pomodoros: 28
 
 #### User Stories
 Objective: Build a CodePen.io app that is functionally similar to this: https://codepen.io/freeCodeCamp/full/RKRbwL.
@@ -55,22 +55,68 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
     ! la barra de navegación -->
     4. Antes de apilarse se separan
 
-#### PROYECTO TERMINADO SIN MIRAR EL CÓDIGO DE LA MUESTRA
 
-##### HTML
+##### Aprendizaje de estudiar el código del ejemplo:
+1. Se me olvidó el alt de la imagen
+2. Mete los anchor elements en <ul><li></li></ul>
+3. entre la cabecera y el resto hace un div vacío de class="container"
+4. usa la etiqueta <section> para dividir secciones del documento
+5. Usa <li> en lugar de <p></p>
+6. Separa el CSS por:
+    - Elementos globales
+    - Clases globales
+7. pone como position:relative al div que envuelve todos los eltos. ¿Por qué?
+    position:relative posiciona un elemento de manera relativa a donde debería estar. 
+    con los offset top, left bottom etc le damos otra posición. 
+8. #000 es negro
+9. No pone labels en los inputs :(--> mala praxis
+10. pone required en el email para que te lo exija
+11. Hay que poner el atributo name="" para que funcione el input de submit en el form!!!!!
+12. usa vw como unidad-> es un porcentaje del viewport o del tamaño de la venta
+13. Mezcla selectores por id con selectores por clase
+<style>
+  #features .icon {}
+</style>
+14. Usa > para seleccionar los hijos directos de un elemento
+<style>
+  nav > ul {}
+</style>  
+15. Las reglas media hay que ponerlas debajo de las reglas normales porque el código se aplica
+de arriba abajo. Por el mismo motivo los media hay que organizarlo de mayor a menor.
+Por ejemplo primero la regla que llega hasta 
+<style>
+  @media(max-width: 650px){
+  .nav-bar{
+    flex-direction: column;
+  }
+
+}
+@media(max-width: 420px){
+  .nav-bar{
+    flex-direction: row;
+  }
+  .header{
+    justify-content:center;
+  }
+}
+</style>
+
+##### Producto final
+
+###### HTML
 
 
 <div class="container">
   
   <header id="header">
-    <div class="logo">
+    <div class="logo" id="log">
       <img
            id="header-img"
            src="https://i.imgur.com/4fk8D7g.png"
            alt="Magical Orb logo"
            class="orb"
        >
-       <h2>Kayros Orbs</h2>
+       <h2>Kayros Orbs LTD</h2>
     </div>
     <nav id="nav-bar" class="nav-bar">
       <a id="nav-link" href="#features" class="nav-link"><span class="sou soul">Features</span></a>
@@ -145,14 +191,20 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
       <h2><span>Price: </span><span class="soul4">Your soul</span></h2>
       <p>Lorem ipsum dolor sit amet</p>
       <p>Lorem ipsum dolor sit amet</p>
-      <p>Lorem ipsum dolor sit amet</p>
       <button class="select-button">SELECT</button>
     </div>
     <div class="buy-option-box">
+      <h2><span class="soul3">Dragon's ball</span></h2>
+      <img src="https://i.imgur.com/MMvXJC8.jpg" class="orb-type orb-filtered">
+      <h2>Price: </span><span class="soul4"><u>Krilin's soul</u></span></h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <button class="select-button">SELECT</button>
+    </div>
+<div class="buy-option-box">
       <h2><span class="soul3">Palantir</span></h2>
       <img src="https://i.imgur.com/OnYPm6M.jpg" class="orb-type">
       <h2>Price: </span><span class="soul4"><u>Your son's soul</u></span></h2>
-      <p>Lorem ipsum dolor sit amet</p>
       <p>Lorem ipsum dolor sit amet</p>
       <p>Lorem ipsum dolor sit amet</p>
       <button class="select-button">SELECT</button>
@@ -165,16 +217,17 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
       <a href="#"><h3>Terms</h3></a>
       <a href="#"><h3>Contact<h3></a>
     </div>
-    <p>Copyright 2020, Kayros Orbs, <br>Terms apply<br>eduardado@gmail.com</p>
+    <p>Copyright 2020, Kayros Orbs LTD, <br>Terms apply<br>eduardado@gmail.com</p>
   </footer>
   
 </div>
 
-
 ###### CSS
-/*Global element styling*/
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&display=swap');
+<style>
+  /*Global styling*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oleo+Script&display=swap');
+
 
 :root{
   --color-blue: #23586a;
@@ -184,7 +237,6 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
   --color-purple: #4f3c50;
   --color-white: #dbefe6;
   --color-yellow: yellow;
-  
 }
 
 .soul{
@@ -200,15 +252,15 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
   text-shadow: 0 0 20px var(--color-yellow);
 }
 
-
+/*
 *,
 *::before,
 *::after{
   box-sizing: border-box;
 }
-
+*/
 body{
-  font-family: 'Shadows Into Light', Sans Serif;
+  font-family: 'Oleo Script', Sans Serif;
   color: var(--color-white);
   background: linear-gradient(
                  90deg,
@@ -217,9 +269,10 @@ body{
                  var(--color-red)) ;
 }
 body p{
-  font-family: Grenze Gotisch;
-  font-size: 1.2rem;
+  font-family: sans-serif;
+  font-size: 1.1rem;
 }
+
 
 
 .container{
@@ -242,7 +295,7 @@ margin:0;
 display: flex;
 justify-content: space-around;
 flex-wrap:wrap;
-border: 1px solid black;
+border-bottom: 1px solid black;
 align-items: flex-end;
 }
 
@@ -259,20 +312,26 @@ align-items: flex-end;
   text-shadow: 0 0 20px yellow;
 }
 
-@media(max-width: 650px){
-  heading{
-    height: 50px;
+/*animation*/
+#log{
+  position:relative;
+  animation-name:fly;
+  animation-duration:3s;
+  animation-iteration-count:infinite;
+}
+@keyframes fly{
+  0%{
+    left: 0px;
   }
-  .nav-bar{
-    flex-direction: column;
+  50%{
+    left:80px;
   }
-  .separator{
-    margin:90px auto;
-  }
-  .sou{
-    font-size: 1rem;
+
+  100%{
+    left:0px;
   }
 }
+
 
 header .logo{
   display: flex;
@@ -289,8 +348,9 @@ header h2{
   font-size: 1rem;
 }
 header .nav-bar{
-width: 280px;
+width: 320px;
 display: flex;
+  justify-content: center;
 align-items:center;
 flex-wrap: wrap;
 }
@@ -345,8 +405,9 @@ label{
 
 /*VIDEO*/
 .youtube-video{
-  margin: 20px auto 20px auto;
+  margin: 0px auto 0px auto;
   padding: 5px;
+  
 }
 .youtube-video h2{
   text-align:center;
@@ -360,20 +421,33 @@ label{
   flex-wrap: wrap;
 }
 .pricing .buy-option-box{
+
   width: 300px;
   border: 1.8px solid black;
   display: flex;
   flex-direction: column;
   margin: 20px;
+  box-shadow: 0px 2px 5px black ;
 }
 .pricing .buy-option-box h2{
   text-align: center;
+  padding-bottom:15px;
   border-bottom: 1.8px solid black;
 }
 .pricing .orb-type{
   height: 100px;
   width: 100px;
   align-self: center;
+}
+.orb-filtered{
+  background: linear-gradient(
+                 90deg,
+                 var(--color-blue),
+                 var(--color-purple),
+                 var(--color-red));
+  opacity: 0.5;
+  z-index:-1;
+  
 }
 .sou{
   font-size:1.5rem;
@@ -417,33 +491,34 @@ label{
   padding: 0;
 }
 
+@media(max-width: 650px){
+  .nav-bar{
+    flex-direction: column;
+  }
+  .slogan{
+  margin-top: 60px;
+  }
+  .sou{
+    font-size: 1.2rem;
+  }
+
+}
+@media(max-width: 470px){
+  .nav-bar{
+    flex-direction: row;
+  }
+  .header{
+    justify-content:center;
+
+  }
+  .slogan{
+  margin-top: 60px;
+  }
+  .sou{
+    font-size: 1.2rem;
+  }
+}
 
 
 
-
-
-##### Aprendizaje de estudiar el código del ejemplo:
-1. Se me olvidó el alt de la imagen
-2. Mete los anchor elements en <ul><li></li></ul>
-3. entre la cabecera y el resto hace un div vacío de class="container"
-4. usa la etiqueta <section> para dividir secciones del documento
-5. Usa <li> en lugar de <p></p>
-6. Separa el CSS por:
-    - Elementos globales
-    - Clases globales
-7. pone como position:relative al div que envuelve todos los eltos. ¿Por qué?
-    position:relative posiciona un elemento de manera relativa a donde debería estar. 
-    con los offset top, left bottom etc le damos otra posición. 
-8. #000 es negro
-9. No pone labels en los inputs :(--> mala praxis
-10. pone required en el email para que te lo exija
-11. Hay que poner el atributo name="" para que funcione el input de submit en el form!!!!!
-12. usa vw como unidad-> es un porcentaje del viewport o del tamaño de la venta
-13. Mezcla selectores por id con selectores por clase
-<style>
-  #features .icon {}
 </style>
-14. Usa > para seleccionar los hijos directos de un elemento
-<style>
-  nav > ul {}
-</style>  

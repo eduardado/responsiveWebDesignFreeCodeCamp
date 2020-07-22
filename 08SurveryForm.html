@@ -380,7 +380,7 @@ font-family: 'Nova Square', sans-serif;
 
   #### Versión final
 
-  ####HTML
+  ##### HTML
   <div class="container">
     <header class="header">
       <h1 id="title" class="text-center">Accountability Enrollment Form</h1>
@@ -433,7 +433,7 @@ font-family: 'Nova Square', sans-serif;
       <p>Which kind of challenge do you want to try?</p>
       <select id = "dropdown" name ="challenge"  class = "form-control" required>
         <option disabled selected>Select type of challenge</option>
-        <option value="writting" selected>Writting</option>
+        <option value="writing" selected>Writing</option>
         <option value="reading">Reading</option>
         <option value="studying">Studying</option>
         <option value="fitness">Fitness</option>
@@ -444,7 +444,7 @@ font-family: 'Nova Square', sans-serif;
     
     
     <!--Radio buttons-->
-    <p>How confident do you feel on achieve your goal?</p>
+    <p>how confident do you feel about achieving your goal?</p>
     <div class="form-group green-box">
          <label for = "very-confident">
            <input
@@ -528,156 +528,158 @@ font-family: 'Nova Square', sans-serif;
     
   </div>
 
-  #### CSS
+##### CSS
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 
-  :root{
-    --color-white: white;
-    --color-blue: #1c1e30;
-    --color-green: #02bb4e;
-    --color-green-glow: #80ffa0;
-    --color-transparent-blue: rgba(28, 30, 48,0.8);
-    --color-transparent-green: rgba(2, 187, 78,0.5);
-    --color-black: black;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  body{
-    font-family: 'Nova Square', sans-serif;
-    font-size:1rem;
-    color: var(--color-white);
-    line-height:1.6;
-    background-color: var(--color-blue);
-    margin: 0;
-  }
-  
-  /*background mobile-friendly*/
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    background: var(--color-darkblue);
-    background-image: linear-gradient(
-        45deg,
-        var(--color-transparent-blue),
-        var(--color-transparent-green)
-      ),
-      url(https://i.imgur.com/tQFaJZo.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  .text-center{
-    text-align:center;
-  }
-  .description{
-    font-style:italic;
-  }
-  
-  .form-group {
-    margin: 0 auto 1.25rem auto;
-    padding: 0.25rem;
-  }
-  
-  .form-control{
-    display:block;
-    width: 100%;
-    color: var(--color-black);
-    height: 2rem;
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    transition: box-shadow 0.3s;
-  
-  }
-  .form-control:focus{  
-    box-shadow: 0 0 0 0.2rem var(--color-green-glow);
-  }
-  
-  /* Selector con atributo
-  input[type], textarea, select{
-    border-radius: 5px;
-  }
-  */
-  
-  .green-box{
-    border-radius: 5px;
-    background:var(--color-green);
-    opacity: 0.8;
-    height: auto;
-    width: 100%;
-  }
-  .edu{
-    display: block;
-  }
-  .input-radio,
-  .input-checkbox{
-    display: inline-block;
-    margin-right: 1rem;
-    min-height: 1rem;
-    min-width: 1rem;
-  }
-  .input-textarea{
-    width:100%;
-    min-height: 120px;
-  }
-  .submit-button{
-    cursor: pointer;
-    display:block;
-    background: var(--color-green);
-    color: inherit;
-    width: 100%;
-    height: 50px;
-  }
-  
-  form{
-    background: var(--color-transparent-blue);
-    border-radius: 15px;
-    padding: 2rem ;
-    margin:auto;
-  }
-  
-  label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  
-  /*Responsive
-    Queremos que en ventanas grandes haya margen
-  */
+:root{
+  --color-white: white;
+  --color-blue: #1c1e30;
+  --color-green: #02bb4e;
+  --color-green-glow: #80ffa0;
+  --color-transparent-blue: rgba(28, 30, 48,0.8);
+  --color-transparent-green: rgba(2, 187, 78,0.5);
+  --color-black: black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Nova Square', sans-serif;
+  font-size:1rem;
+  color: var(--color-white);
+  line-height:1.6;
+  background-color: var(--color-blue);
+  margin: 0;
+}
+
+/*background mobile-friendly*/
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      45deg,
+      var(--color-transparent-blue),
+      var(--color-transparent-green)
+    ),
+    url(https://i.imgur.com/tQFaJZo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.text-center{
+  text-align:center;
+}
+.description{
+  font-style:italic;
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control{
+  display:block;
+  width: 100%;
+  color: var(--color-black);
+  height: 2rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+
+}
+.form-control:focus{  
+  box-shadow: 0 0 0 0.2rem var(--color-green-glow);
+}
+
+/* Selector con atributo
+input[type], textarea, select{
+  border-radius: 5px;
+}
+*/
+
+.green-box{
+  border-radius: 5px;
+  background:var(--color-green);
+  opacity: 0.8;
+  height: auto;
+  width: 100%;
+}
+.edu{
+  display: block;
+}
+.input-radio,
+.input-checkbox{
+  display: inline-block;
+  margin-right: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
+}
+.input-textarea{
+  width:100%;
+  min-height: 120px;
+}
+.submit-button{
+  cursor: pointer;
+  display:block;
+  background: var(--color-green);
+  color: inherit;
+  width: 100%;
+  height: 50px;
+}
+
+form{
+  background: var(--color-transparent-blue);
+  border-radius: 15px;
+  padding: 2rem ;
+  margin:auto;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/*Responsive
+  Queremos que en ventanas grandes haya margen
+*/
+.container {
+  width: 100%;
+  margin: 2rem auto 0 auto;
+}
+
+@media (min-width: 600px) {
   .container {
-    width: 100%;
-    margin: 2rem auto 0 auto;
+    max-width: 570px;
   }
-  
-  @media (min-width: 600px) {
-    .container {
-      max-width: 570px;
-    }
+}
+
+@media (min-width: 800px) {
+  .container {
+    max-width: 720px;
   }
-  
-  @media (min-width: 800px) {
-    .container {
-      max-width: 720px;
-    }
-  }
-  .healthyGamer{
-    width: 20%;
-    heigth: auto;
-    border-radius: 10px;
-    display: block;
-    margin: auto;
-    opacity: 0.8;
-  }
-  
+}
+.healthyGamer{
+  width: 20%;
+  heigth: auto;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  opacity: 0.8;
+}
+
+</style>

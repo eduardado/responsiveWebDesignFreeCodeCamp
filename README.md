@@ -5,6 +5,7 @@ Voy a usar este repositorio con dos objetivos:
 2. Guardar mis apuntes y ejemplos de la certificación.
 
 [Enlace a los cursos de FREE CODE CAMP](https://www.freecodecamp.org/learn/)
+[Enlace a mi dashboard de codepen](https://codepen.io/dashboard/)
 
 ## Nota
 Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(pluggin)
@@ -17,3 +18,6 @@ Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(plug
     ![Imgur](https://i.imgur.com/qygsiFd.png)
 3.[Product landing Page](https://codepen.io/eduardado/full/QWyJONO)
 4.[Technical Documentation Page](https://codepen.io/eduardado/full/GRozdor)
+
+TODO LIST
+1. Poner el portfolio final en https://eduardado.github.io/

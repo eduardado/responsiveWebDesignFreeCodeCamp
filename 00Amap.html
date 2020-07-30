@@ -5,6 +5,8 @@ Pomodoros:
 Notas: 
     * "Better Comments" ; Visual Studio Code
     * Uso comentarios con colores
+    * Idealmente no debe haber ninguna explicación, si hay alguna debe borrarse cuando
+        el concepto quede afianzado.
 
 <!--*=MAP========================================================-->
 
@@ -29,6 +31,11 @@ Notas:
         * _blank
     <a href="#enlaceInterno"></a>
         <p id="enlaceInterno"></p>
+    :link
+    :visited
+    :hover
+    :active
+    :focus
 * ul/ol
     * li
         * list-style-type
@@ -145,16 +152,20 @@ Unidades
     Relativas:
         * em
         * rem
-        * vw (%del viewport)
+        * vw 
+            * 0-100
+        * vh 
+            * 0-100
 
 <!-- todo SELECTORES-->
 Selectores
     id -> # {}
     clase -> .{}
     [attr=value]{}
+        [class*="col-"] -> (todos los eltos cuyo atributo class contenga "col-")
     :root{}
-
-    nav > ul { ( ul direct children of nav and not further)
+    nav > ul {             ( ul direct children of nav and not further)
+    
 
 
 <!-- todo Pseudo clases-->
@@ -166,6 +177,7 @@ Selectores
 ::after
 
 <!--todo CSS ATRIBUTOS-->
+    * padding: [top-right-bottom-left]
     * details
         * summary
     * white-space
@@ -185,7 +197,9 @@ Selectores
     * text-decoration
         * line-through
         * underline
+        * none
     * font-style
+        * italic
     * width
     * height
     * border-color
@@ -211,7 +225,7 @@ Selectores
         * justify;
         * right;
         * left;
-    * text-shadow
+    * text-shadow (h v blur color)
         * 
     * box-shadow
         * offset-x
@@ -250,6 +264,7 @@ Selectores
         * inline
         * inline-block
         * flex
+        * none
     * background
         * linear-gradient()
         * repeating-linear-gradient()

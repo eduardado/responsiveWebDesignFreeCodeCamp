@@ -1,0 +1,85 @@
+# Responsive Web Design Projects
+## Personal Portfolio Webpage
+Start:  24/07/2020
+Pomodoros:  
+Notas: 
+    * "Better Comments" ; Visual Studio Code
+    * Uso comentarios con colores
+<!--*=user stories========================================================-->
+User Story #1: My portfolio should have a welcome section with an id of welcome-section.
+
+User Story #2: The welcome section should have an h1 element that contains text.
+
+User Story #3: My portfolio should have a projects section with an id of projects.
+
+User Story #4: The projects section should contain at least one element with a class 
+of project-tile to hold a project.
+
+User Story #5: The projects section should contain at least one link to a project.
+
+User Story #6: My portfolio should have a navbar with an id of navbar.
+
+User Story #7: The navbar should contain at least one link that I can click on to
+ navigate to different sections of the page.
+
+User Story #8: My portfolio should have a link with an id of profile-link, 
+which opens my GitHub or FCC profile in a new tab.
+
+User Story #9: My portfolio should have at least one media query.
+
+User Story #10: The height of the welcome section should be equal to the height 
+of the viewport.
+
+User Story #11: The navbar should always be at the top of the viewport.
+<!--?=resultado sin mirar pistas===================================================-->
+--Cosas que no sé hacer
+1. No tengo ni idea do cómo animar el movimiento del ">" en el botón.
+2. No sé cómo hace para poner la raya de debajo del título en el apartado Work.
+    1. Está muy pegada al letrero y va cambiando con respesc
+3. No sé cómo hacer para que los símbolos naranjas aparezcan y desaparezcan
+<!--todo=Aprendizaje==================================================-->
+1. <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    1. Se debe incluir en todas las páginas web responsive.
+    2. content="width=device-width -> para que el contenido se adapte al tamaño de la
+        pantalla
+    3. initial-scale=1.0 -> zoom inicial
+2. Dentro de un bloque flex, si queremos animar algún elemento digamos moviéndolo ligeramente
+    para que parezca que pulsamos un botón, podemos darle a un elemento display:relative y despues
+    top: 5px en el :hover
+3. Es muy importante poner las reglas @media de mayor a menor ancho. no sé porqué
+Ejemplos: 
+
+<!--*así funciona perfectamente-->
+<style>
+    @media(max-width:1000px){
+  .project-tile{
+    width:45%;
+  }
+}
+
+@media(max-width:750px){
+  .project-tile{
+    width:95%;
+  }
+}
+</style>
+
+<!--! Así no funciona:--> 
+<style>
+@media(max-width:750px){
+  .project-tile{
+    width:95%;
+  }
+}
+
+@media(max-width:1000px){
+  .project-tile{
+    width:45%;
+  }
+}
+</style>
+
+No sé porqué.
+
+
+<!--!=Resultado final===================================================-->

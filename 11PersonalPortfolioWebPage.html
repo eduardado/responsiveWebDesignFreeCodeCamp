@@ -34,10 +34,433 @@ User Story #11: The navbar should always be at the top of the viewport.
 <!--?=resultado sin mirar pistas===================================================-->
 --Cosas que no sé hacer
 1. No tengo ni idea do cómo animar el movimiento del ">" en el botón.
+  <!-- ! solución-->
+  1. Poner un icono > que animar
+  2. darle los siguientes atributos en el modo normal
+    1. transform: translateX(0);
+    2. transition: transform 0.3s ease-out
+  3. ponemos que al activar algún hover, dicho elemento se mueva
+    transform: translateX(5px)
 2. No sé cómo hace para poner la raya de debajo del título en el apartado Work.
     1. Está muy pegada al letrero y va cambiando con respesc
+    <!-- !solución-->
+      1. Es un <h2>
+      2. le pone max-width: 640px
+      3. le pone un border-bottom, no es un hr
 3. No sé cómo hacer para que los símbolos naranjas aparezcan y desaparezcan
+    <!--!solución-->
+    1. Hace un span con una clase code
+    2. lo rellena con entities 
+      1. &lt;  <
+      2. &#47; /
+      3. &gt; >
+    3. pone la clase code con el mismo color del fondo en el que está
+    4. la viñeta tiene dos clases
+        project-tile: que la usa para ponerle el tamaño de letra y el padding
+        project: que la usa para lo siguiente
+    5. hace que al usar :hover sobre un elemento una subclase cambie de color a naranja, sintaxis:
+        1. al pasar el ratón por el elto cuya clase es project (el <a></a>)
+        2. el elto de clase .code cambiará de color
+    <style>
+      .project:hover .code{
+        color: orange;
+      }
+    </style>
+    6. También le mete un transition con color 0.3s ease-out al color para que quede chulo
+4. no sé como hacer que los enlaces se muevan lentamente, no funciona la propiedad 
+  transition con top.
+  <!--! solución-->
+  1. se crea una situación inicial
+    1. transition: transform 0.3s ease-out en el elto que queramos animar ( un anchor en este caso)
+    2. se le hace un :hover y se pone transform: tranlateY(xpx) y se moverá verticalmente despacio (ease-out)
+
+#### HTML
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<html>
+<nav id="navbar" class="navbar">
+  <a href="#welcome-section">About  </a>
+  <a href="#projects">Work          </a>
+  <a href="#contact">Contact        </a>
+  </ul>
+</nav>
+
+<section id="welcome-section">
+  <h1>Hey! I am Eduardo</h1>
+  <h2>a web developer</h2>
+</section>
+
+<section id="projects" class="projects">
+  
+  <h2 class="projects-title">These are some of my projects<h2>
+    <hr class="projects-title-line">
+    
+  <div id ="tile-group" class = "tile-group">   
+    
+    <a 
+       id = "project-tile" 
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/OJMapeY"
+       target = "_blank"
+       >
+      <figure>
+        <img 
+             id = "Survey_form"
+             src = "https://i.imgur.com/5pd56hx.png"
+             alt = "snapshot of the survery form website"
+             class="snapshot"
+             >
+        
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Survey Form</span>
+          <span class="ghost">/></span>
+        </figcaption>
+          
+      </figure>
+    </a>
+
+    <a 
+       id = "project-tile"
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/QWyJONO"
+       target = "_blank"
+       >
+      <figure>
+        <img 
+             id = "Product_landing_page"
+             src = "https://i.imgur.com/22DmqaN.png"
+             alt = "snapshot of the Magic Orb company shop"
+             class="snapshot"
+             >
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Product Landing Page</span>
+          <span class="ghost">/></span>
+        </figcaption>
+      </figure>
+    </a>
+    
+    <a 
+       id = "project-tile" 
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/GRozdor"
+       target = "_blank">
+      <figure>
+        <img 
+             id = "Technical Documentation Page"
+             src = "https://i.imgur.com/eEMHVqA.png"
+             alt = "snapshot of the technical documentation page"
+             class="snapshot"
+             >
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Technical Documentation Page</span>
+          <span class="ghost">/></span>
+        </figcaption>
+      </figure>
+    </a>
+    
+    
+  </div>
+
+  <div class="edu">  
+    <a 
+       id = "profile-link"
+       href="https://codepen.io/eduardado"
+       target="_blank"
+       ><span class="show">Show all</span>
+       <span  class="symbol">></span>
+
+    </a>
+  </div>
+    
+    
+ 
+</section>
+
+<section id="contact">
+  <h2>Let's work together...</h2>
+  <h3>How do you take your coffee?</h3>
+  
+  <div class="contact-links">
+    
+       <a class="link-box"
+           id = "github" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+         <span>Github</span>
+      </a>
+      <a class="link-box"
+           id = "facebook" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/></svg>
+         <span>Facebook</span>
+      </a>
+    <a class="link-box"
+           id = "github" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram icon</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+         <span>Instagram</span>
+      </a>
+    <a class="link-box"
+           id = "gmail" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail icon</title><path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z"/></svg>
+         <span>send a mail</span>
+      </a>
+    <a class="link-box"
+           id = "twitter" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+         <span>Twitter</span>
+      </a>
+    <a class="link-box"
+           id = "mobile" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discord icon</title><path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"/></svg>
+         <span>call me</span>
+      </a>
+    
+      
+  </div>
+  
+</section>
+
+</html>
+#### CSS
+<style>
+
+
+/*Global*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+:root{
+  --color-red:#be3144;
+  --color-blue:#45567d;
+  --color-dark-grey: #323437;
+  --color-light-grey: #575b61;
+  --color-white: #f0f0f0;
+  --color-black: #000;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Nova Square', sans-serif;
+  color: var(--color-white);
+  margin:0px;
+  padding:0px;
+  background: 
+    linear-gradient(60deg,var(--color-dark-grey), var(--color-black));
+}
+
+
+/*Welcome Section*/
+.navbar{
+  width:100%;
+  position:fixed;
+  display:flex;  
+  justify-content:flex-end;
+  background-color: var(--color-red);
+}
+.navbar a{
+  padding: 15px;
+  text-decoration:none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+.navbar a:hover{
+  background-color: var(--color-blue);
+}
+#welcome-section{
+  height: 100vh;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+}
+#welcome-section h1, h2{
+  text-align: center;
+}
+#welcome-section h1{
+  font-family: 'Permanent Marker', sans-serif;
+  font-size:4rem;
+  margin-bottom: 2px;
+}
+#welcome-section h2{
+  font-size:2rem;
+  font-style:italic;
+  color: var(--color-red);
+}
+
+/*---Proyects section ----------------------------*/
+.projects{
+  background-color: var(--color-blue);
+  display:flex;
+  flex-direction:column;
+}
+.projects h2{
+  font-size:2rem;
+}
+.projects  .edu a{
+  text-decoration:none;
+  display: inline-block;
+  margin: 40px 0px 40px 0px;
+  padding: 5px 20px 5px 10px;
+  color:inherit;
+  background-color: var(--color-dark-grey);
+  border-radius: 5px;
+  position:relative;
+  box-shadow: 0 5px 0 ;
+  transition: background-color 0.3s;
+}
+.projects .edu a:active{
+  box-shadow:none;
+  top: 5px;
+}.projects .edu a:hover{
+  background-color: var(--color-red);
+}
+
+.projects-title{
+ margin-top: 80px;
+ margin-bottom: 0px;
+ padding: 5px 5px 0px 5px;
+}
+.projects hr{
+  padding-top:0px;
+  margin-top: 0px;
+  border-top: 2px solid var(--color-white);
+  width: 95%;
+}
+
+.projects .tile-group{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.projects .tile-group a{
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.project-tile{
+  width: 28%;
+  margin: 15px;
+  padding: 0px;
+  box-shadow: 1px 0px var(--color-light-grey);
+}
+figure{
+  display:flex;
+  margin:0px;
+  padding:0px;
+  flex-direction:column;
+}
+.snapshot{
+  margin:0px;
+  padding:0px;
+  width:  100%;
+}
+figcaption{
+  padding: 10px 0px 10px 0px;
+  font-size: 18px;
+  width: 100%;
+  max-height: 40px;
+  background-color: var(--color-dark-grey);
+}
+figcaption .ghost{
+  color: orange;
+  display:contents;
+}
+
+
+/*----------Contact---------------------*/
+#contact{
+  display.flex;
+  flex-direction:column;
+  justify-content: center;
+}
+
+#contact h2,h3{
+  text-align:center;
+}
+
+#contact h2{
+  margin: 70px 0px 0px 0px;
+  font-size: 2.5rem;
+  padding: 0;
+}
+
+#contact h3{
+  margin:0;
+  padding:0;
+  font-style: italic;
+}
+.contact-links{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0px 50px 0px;
+}
+
+.link-box {
+  display:flex;
+  position:relative;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
+  color:inherit;
+  font-size: 20px;
+  padding: 5px;
+  margin: 20px 15px 10px 15px;
+  width: 190px;
+  transition: top 2s ease;
+}
+.link-box:hover{
+  top: 10px;
+}
+.link-box svg{
+  width: 25px;
+  height: 25px;
+  fill: white;
+  margin-right: 8px;
+
+}
+
+/*----------Media-------------------*/
+@media(max-width:1000px){
+  .project-tile{
+    width:45%;
+  }
+}
+
+@media(max-width:750px){
+  .project-tile{
+    width:95%;
+  }
+  .navbar{
+    justify-content: center;
+  }
+  
+  #welcome-section h1{
+    font-size: 3rem;
+  }
+}
+</style>
 <!--todo=Aprendizaje==================================================-->
+--Aprendo haciendo la web--
 1. <meta name="viewport" content="width=device-width, initial-scale=1.0">
     1. Se debe incluir en todas las páginas web responsive.
     2. content="width=device-width -> para que el contenido se adapte al tamaño de la
@@ -81,5 +504,536 @@ Ejemplos:
 
 No sé porqué.
 
+--Aprendo leyendo el código de muestra--
+
+1. *{} hereda de <html>. Así, podemos usar 
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html{
+    box-sizing: border-box;
+  }
+</style>
+
+  1. Y luego:
+  2. scroll-behaviour: smooth;
+
+  . z-index: 10 -> esto ahorra el problema de los botones o cosas pasando por encima.
+
+
+3. en html{} establece el font-size como un %
+  1. 16px = 1rem
+  2. 100% => 16px, 10 => x ; 
+  3. font-size: 10px -> 62.5%;
+4. Ahora genera 3 breaking points:
+  1. 1200px
+  2. 980px
+  3. 460px
+5. Usa la unidad em para los breakpoints en lugar de px
+  1. em es una unidad relativa al tamaño de letra del documento, así
+    2 em es dos veces el tamaño de letra y así sucesivamente.
+  2. Calcula cuánto sería un área en función de la letra del documento
+    haciendo un ratio: tamaño de pantalla / la letra base del navegador 
+    1. 1200px/16px = 75em
+    2. 980/16 = 61.25em
+    3. 460/16 = 28.75em
+  3. Crea 3 reglas @media, una para cada breakpoint
+  4. Le pone a cada tipo de dispositivo (con viewport diferente) un tamaño
+  de letra 60%, 58%, 55% + el de pantallas aún más grandes: 62.5%
+6. Una vez establece un tamaño de letra:
+  1. En porcentajes
+  2. Para 4 viewports diferentes
+  3. Va estableciendo tamaño de letra para distintas partes de la página:
+    1. body
+    2. h1, h2
+  4. Lo hace en la unidad rem que está basada en el tamaño de letra del 
+    elemento root
+7. Marca el text-decoration: none en los anchor elements de manera global
+8. Pone el elto img como display:block y con anchura del 100%
+  <style>
+    @media (max-width:75em){
+      html{font-size:60%;}
+    }
+  </style>
+9. Usa fontawesome para los iconos que consiste en agregar un enlace en
+  la cabecera y luego añadir eltos <i> con el código del icono.
+10. Vuelve a usar <ul><li></li></ul> para los enlaces de la cabecera
+11. Usa rem para los márgenes
+12. display: block para los enlaces de la cabecera
+13. le pone fondo con background-color por si el navegador no soporta
+    gradientes
+14. Usa display:grid para los snapshot!! ｡ﾟ･（>﹏<）･ﾟ｡ sin @media 
+    1. display: grid
+    2. grid-template-columns
+    3. grid-gap
+15 Al usar box-shadow para los snapshot con los valores:
+    box-shadow: 1px 1px 2px rgba(0, 0, 0 , 0.5)
+    1. 1px vertical 
+    2. 1px horizontal 
+    3. 2px blur 
+    4. negro semitransparente
+    Parece que la caja está flotando ligeramente.
+16. Analicemos los selectores que chulos.
+    1. elto a de un elto con clase "edu" de un elemento de clase "projects" cuando se le pasa el raton por encima, 
+      el fondo de dicho elemento anchor cambia.
+    2. el elto svg del elto anchor cuando se le pone el ratón encima, que pertenece a la clase "edu" que pertenece
+      a la clase "projects" se desplaza
+      
+<style>
+  .projects .edu a:hover{
+  background-color: var(--color-red);
+}
+.projects .edu a:hover svg{
+   transform: translateX(5px);
+}
+</style>
 
 <!--!=Resultado final===================================================-->
+#### HTML
+<html>
+<!-- START NAV SECTION-->
+<nav id="navbar" class="navbar">
+  <a href="#welcome-section">About  </a>
+  <a href="#projects">Work          </a>
+  <a href="#contact">Contact        </a>
+  </ul>
+</nav>
+<!-- END NAV SECTION-->
+
+<!-- START WELCOME SECTION-->
+<section id="welcome-section" class="welcome-section">
+  <h1>Hey! I am Eduardo</h1>
+  <h2>a web developer</h2>
+</section>
+<!--END WELCOME SECTION-->
+
+
+<section id="projects" class="projects">
+  
+  <h2 class="projects-title">These are some of my projects<h2>
+    <hr class="projects-title-line">
+    
+    <!--TILE GRID START-->
+  <div id ="tile-group" class = "tile-group">   
+    
+    <a 
+       id = "project-tile" 
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/OJMapeY"
+       target = "_blank"
+       >
+      <figure>
+        <img 
+             id = "Survey_form"
+             src = "https://i.imgur.com/5pd56hx.png"
+             alt = "snapshot of the survery form website"
+             class="snapshot"
+             >
+        
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Survey Form</span>
+          <span class="ghost">/></span>
+        </figcaption>
+          
+      </figure>
+    </a>
+
+    <a 
+       id = "project-tile"
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/QWyJONO"
+       target = "_blank"
+       >
+      <figure>
+        <img 
+             id = "Product_landing_page"
+             src = "https://i.imgur.com/22DmqaN.png"
+             alt = "snapshot of the Magic Orb company shop"
+             class="snapshot"
+             >
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Product Landing Page</span>
+          <span class="ghost">/></span>
+        </figcaption>
+      </figure>
+    </a>
+    
+    <a 
+       id = "project-tile" 
+       class = "project-tile"
+       href = "https://codepen.io/eduardado/full/GRozdor"
+       target = "_blank">
+      <figure>
+        <img 
+             id = "Technical Documentation Page"
+             src = "https://i.imgur.com/eEMHVqA.png"
+             alt = "snapshot of the technical documentation page"
+             class="snapshot"
+             >
+        </img>
+        <figcaption>
+          <span class="ghost"><</span>
+          <span>Technical Documentation Page</span>
+          <span class="ghost">/></span>
+        </figcaption>
+      </figure>
+    </a>
+    
+    
+  </div>
+    <!--TILE GRID END-->
+
+<!--SHOW ALL BUTTON-->
+  <div class="show-all-button">  
+    <a 
+       id = "profile-link"
+       href="https://codepen.io/eduardado"
+       target="_blank"
+       ><span class="show">Show all</span>
+      <svg xmlns="http://www.w3.org/2000/svg"width="20px" height="20px"         viewBox="0 0 103.536 103.536">
+		<path d="M0.65,91.928c1.221,2.701,3.881,4.3,6.665,4.3c1.006,0,2.029-0.209,3.006-0.65l88.917-40.195
+			c2.688-1.216,4.381-3.925,4.295-6.873c-0.085-2.948-1.934-5.554-4.687-6.609L9.929,7.794C6.17,6.352,1.933,8.23,0.489,12.001
+			c-1.447,3.769,0.438,7.995,4.207,9.44l72.569,27.834L4.299,82.255C0.62,83.92-1.012,88.249,0.65,91.928z"/>
+	
+</svg>
+    </a>
+  </div>
+</section>
+<!-- Project section end-->
+
+<!--CONTACT SECTION START-->
+<section id="contact" class="contact">
+  
+  <h2 class="contact-title">Let's work together...</h2>
+  <h3 class="contact-subtitle">How do you take your coffee?</h3>
+  
+  <div class="contact-links">
+       <a class="link-box"
+           id = "github" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+         <span>Github</span>
+      </a>
+    
+      <a class="link-box"
+           id = "facebook" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/></svg>
+         <span>Facebook</span>
+      </a>
+    
+    <a class="link-box"
+           id = "github" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram icon</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+         <span>Instagram</span>
+      </a>
+    
+    <a class="link-box"
+           id = "gmail" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail icon</title><path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.649 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.076 3 1.5 3H2l10 7.25L22 3h.5c.425 0 .8.162 1.069.432.27.268.431.643.431 1.068z"/></svg>
+         <span>mail</span>
+      </a>
+    <a class="link-box"
+           id = "twitter" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+         <span>Twitter</span>
+      </a>
+    <a class="link-box"
+           id = "mobile" 
+           href = "#"
+           target = "_blank" >
+          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discord icon</title><path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"/></svg>
+         <span>call me</span>
+      </a>
+    
+      
+  </div>
+  <hr>
+  <p>Created by: Eduardo Díaz<br>eduardado@gmail.com</p>
+  
+</section>
+<!--CONTACT SECTION END-->
+
+</html>
+
+#### CSS
+<style>
+  /*Global*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+:root{
+  --color-red:#be3144;
+  --color-blue:#45567d;
+  --color-dark-grey: #323437;
+  --color-light-grey: #575b61;
+  --color-white: #f0f0f0;
+  --color-black: #000;
+}
+
+/*I don't use *::before or *::after because I don't use them in this file*/
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Nova Square', sans-serif;
+  color: var(--color-white);
+  margin:0px;
+  padding:0px;
+  background-color: var(--color-dark-grey);
+}
+
+/*Nav bar*/
+.navbar{
+  position:fixed;
+  display:flex;  
+  justify-content:flex-end;
+  width:100%;
+  background-color: var(--color-red);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.navbar a{
+  padding: 15px;
+  text-decoration:none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+.navbar a:hover{
+  background-color: var(--color-blue);
+}
+
+
+/* Welcome Section */
+
+.welcome-section{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+   background: 
+    linear-gradient(60deg,var(--color-light-grey), var(--color-black));
+}
+#welcome-section h1, h2{
+  text-align: center;
+}
+#welcome-section h1{
+  font-family: 'Permanent Marker', sans-serif;
+  font-size:4rem;
+  margin-bottom: 2px;
+}
+#welcome-section h2{
+  font-size:2rem;
+  font-style:italic;
+  color: var(--color-red);
+}
+
+/*---Projects section START----------------------------*/
+.projects{
+  border: 1px solid black;
+  margin:0;
+  padding:0;
+  background-color: var(--color-blue);
+  display:flex;
+  flex-direction:column;
+}
+.projects h2{
+  font-size:2rem;
+}
+.projects  .show-all-button a{
+  text-decoration:none;
+  display: inline-block;
+  margin: 30px 0px 40px 0px;
+  padding: 5px 20px 5px 10px;
+  color:inherit;
+  background-color: var(--color-dark-grey);
+  border-radius: 5px;
+  position:relative;
+  box-shadow: 0 5px 0 ;
+  transition: background-color 0.3s ease-out;
+}
+
+.projects .show-all-button a:active{
+  box-shadow:none;
+  top: 5px;
+}
+.projects .show-all-button a:hover{
+  background-color: var(--color-red);
+}
+/*Button ">" animation*/
+.projects .show-all-button a svg{
+  margin-left: 10px;
+  fill: white;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+.projects .show-all-button a:hover svg{
+   transform: translateX(5px);
+}
+
+
+.projects-title{
+ margin-top: 60px;
+ margin-bottom: 0px;
+ padding: 5px 5px 0px 5px;
+}
+.projects hr{
+  padding-top:0px;
+  margin-top: 0px;
+  border-top: 2px solid var(--color-white);
+  width: 95%;
+}
+
+.projects .tile-group{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.projects .tile-group a{
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.project-tile{
+  width: 28%;
+  margin: 15px;
+  padding: 0px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+}
+figure{
+  display:flex;
+  margin:0px;
+  padding:0px;
+  flex-direction:column;
+}
+.snapshot{
+  margin:0px;
+  padding:0px;
+  width:  100%;
+}
+figcaption{
+  padding: 10px 0px 10px 0px;
+  font-size: 18px;
+  width: 100%;
+  max-height: 40px;
+  background-color: var(--color-dark-grey);
+}
+/* Symbols emerging from the dark when hover*/
+figcaption .ghost{
+  color: var(--color-dark-grey);
+  transition: color 0.3s ease-out;
+}
+.project-tile:hover .ghost{
+  color: orange;
+}
+
+
+/*----------Contact---------------------*/
+.contact{
+  border: 1px solid black;
+  width: 100%;
+  margin:0;
+  padding: 0;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark-grey);
+}
+.contact-title{
+  margin-top: 60px;
+}
+
+.contact h2,h3,p{
+  text-align:center;
+}
+
+.contact h2{
+  font-size: 2.2rem;
+}
+
+.contact h3{
+  font-style: italic;
+}
+
+.contact hr{
+  border-top: 3px solid var(--color-red);
+  width: 95%;
+}
+.contact-links{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0px 50px 0px;
+}
+
+.link-box {
+  display:flex;
+  position:relative;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration:none;
+  color:inherit;
+  font-size: 20px;
+  padding: 5px;
+  margin: 20px 15px 10px 15px;
+  width: 130px;
+  transform: translateY (0);
+  transition: transform 0.3s ease-out;
+}
+.link-box:hover{
+  transform: translateY(8px);
+}
+.link-box svg{
+  width: 25px;
+  height: 25px;
+  fill: white;
+  margin-right: 8px;
+}
+
+/*----------Media-------------------*/
+@media(max-width:1000px){
+  .project-tile{
+    width:45%;
+  }
+}
+
+@media(max-width:750px){
+  .project-tile{
+    width:90%;
+  }
+  .navbar{
+    justify-content: center;
+  }
+  
+  .welcome-section h1{
+    font-size: 3rem;
+  }
+}
+
+
+</style>

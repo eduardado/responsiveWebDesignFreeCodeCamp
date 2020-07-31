@@ -11,6 +11,8 @@ Notas:
 <!--*=MAP========================================================-->
 
 <!--todo ETIQUETAS-->
+* hr
+    * border-top
 * word-break
     * normal
     * break-all
@@ -176,7 +178,13 @@ Selectores
 ::before
 ::after
 
+<!--todo SVG-->
+    * fill
+        
+
 <!--todo CSS ATRIBUTOS-->
+    * scroll-behavior
+        * smooth
     * padding: [top-right-bottom-left]
     * details
         * summary
@@ -226,13 +234,7 @@ Selectores
         * right;
         * left;
     * text-shadow (h v blur color)
-        * 
-    * box-shadow
-        * offset-x
-        * offset-y
-        * blur-radius
-        * spread-radius
-        * color
+    * box-shadow [y x blur-radius spread-radius color]
     * Opacity
         * 0.1-1
     * list-style
@@ -240,6 +242,7 @@ Selectores
         * square
         * upper-roman
         * lower-alpha
+        * none
     * text-transform
         * lowercase
         * uppercase
@@ -266,7 +269,8 @@ Selectores
         * flex
         * none
     * background
-        * linear-gradient()
+        * linear-gradient() 
+            {!min-height:100% del root(<html>) para que llene body{}}
         * repeating-linear-gradient()
         * url()
     * transform
@@ -277,10 +281,17 @@ Selectores
             * deg
         * rotate ()
             * deg
+        * translateX
+        * translateY
     * box-sizing
         * border-box
-    * transition
-        * attr seconds
+    * transition [property duration function delay]
+        * fucntion
+            * linear
+            * ease
+            * ease-in
+            * ease-out
+            * ease-in-out
 * hexadecimal RGB
     #RRGGBB
         * 0-F

@@ -11,6 +11,10 @@ Notas:
 <!--*=MAP========================================================-->
 
 <!--todo ETIQUETAS-->
+* table
+    * th
+    * tr
+    * td
 * hr
     * border-top
 * word-break
@@ -183,6 +187,7 @@ Selectores
         
 
 <!--todo CSS ATRIBUTOS-->
+    * border-collapse: collapse (table)
     * scroll-behavior
         * smooth
     * padding: [top-right-bottom-left]
@@ -210,6 +215,7 @@ Selectores
         * italic
     * width
     * height
+
     * border-color
     * border-width
     * border-style
@@ -224,6 +230,11 @@ Selectores
         * transparent
     * background-clip
         * padding-box;
+    * background-blend-mode
+        * darken
+        * lighten
+        * luminosity
+        * multiply
     * margin
         * px
         * -px:
@@ -269,9 +280,14 @@ Selectores
         * flex
         * none
     * background
-        * linear-gradient() 
-            {!min-height:100% del root(<html>) para que llene body{}}
+        * linear-gradient(): [deg/to X, color1 Y%, color2 Y2%]
+            * to X
+                * to right/to left/to top/ to bottom
+            * Y: 0-100% (color stop)
+                {!min-height:100% del root(<html>) para que llene body{}}
+
         * repeating-linear-gradient()
+        * radial-gradient()
         * url()
     * transform
         * scale()

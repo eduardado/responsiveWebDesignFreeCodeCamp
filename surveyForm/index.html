@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Survey Form </title>
+</head>
+<body>
+    
+</body>
+</html>
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Accountability Enrollment Form</h1>
+      <p id="description" class="text-center description">Commit to yourself</p>
+    </header>
+  
+  <form id="survey-form">
+    <img src="https://i.imgur.com/uYho6qy.png" class="healthyGamer">
+     <div class = "form-group">
+        <label for = "name" id="name-label">Name</label>
+        <input 
+               id = "name" 
+               type = "text" 
+               name = "name"
+               placeholder = "Enter your name"
+               size = "50"
+               class = "form-control"
+               required
+      >
+    </div>
+    
+    
+    <div class="form-group">
+      <label for = "email" id="email-label">Email</label>
+      <input 
+             id = "email"
+             type = "email"
+             name = "email"
+             placeholder = "Enter your Email"
+             size = "50"
+             class = "form-control"
+             required
+             >
+    </div>
+    
+    <div class="form-group">
+      <label for = "number" id="number-label">Attempts</label>
+      <input 
+             id = "number"
+             type = "number"
+             name = "attempts"
+             placeholder = "Number of attempts"
+             min = "1"
+             max = "99"
+             class = "form-control"
+      >
+    </div>
+  
+    <div class="form-group">
+      <p>Which kind of challenge do you want to try?</p>
+      <select id = "dropdown" name ="challenge"  class = "form-control" required>
+        <option disabled selected>Select type of challenge</option>
+        <option value="writing" selected>Writing</option>
+        <option value="reading">Reading</option>
+        <option value="studying">Studying</option>
+        <option value="fitness">Fitness</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  
+    
+    
+    <!--Radio buttons-->
+    <p>how confident do you feel about achieving your goal?</p>
+    <div class="form-group green-box">
+         <label for = "very-confident">
+           <input
+             name = "confident"
+             id = "very-confident"
+             type = "radio" 
+             value = "very-confident"
+             class = "input-radio"
+            >Very confident
+          </label>
+        <label for = "confident">
+          <input
+                name = "confident"
+                id = "confident"
+                type = "radio"
+                value = "confident"
+                class = "input-radio"
+          > Confident
+        </label>
+      <label for = "unsure">
+        <input
+               name = "confident"
+               id = "unsure"
+               type = "radio"
+               value = "unsure"
+               class = "input-radio"
+        >Unsure
+      </label>
+     </div>
+    
+    <!--Checkboxes-->
+    <p>What pushed you to start this challenge?</p>
+    <div class="form-group green-box">
+        <label for = "peer pressure">
+          <input
+               id = "peer pressure"
+               type = "checkbox"
+               name = "reason"
+               value = "peer pressure"
+          >Peer pressure
+        </label>                         
+      <label for="dr-k">
+        <input
+             id = "dr-k"
+             type = "checkbox"
+             name = "reason"
+             value = "dr-k"
+        >Dr. K
+      </label>                           
+      <label for = "self-growth">
+        <input
+             id = "self-growth"
+             type = "checkbox"
+             name = "reason"
+             value = "self-growth"
+        >Self Growth
+      </label>                                  
+    </div>
+    
+                                    
+  
+  <div class="form-group">
+    <p>Describe your plan to accomplishing your goal</p>
+    <textarea 
+         id = "plan"
+         name = "plan"
+         placeholder = " Enter your plan here..."
+         class = "input-textarea"
+    ></textarea>
+   </div>
+  
+    <div class="form-group">
+      <input 
+        type = "submit"
+        id = "submit" 
+        value ="Submit"
+        class = "submit-button"
+      >
+    </div>
+      </form>
+    
+  </div>

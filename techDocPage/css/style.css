@@ -1,0 +1,121 @@
+
+/*Global*/
+
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+*{
+  box-sizing:border-box;
+}
+
+:root{
+  --color-dark-blue:#010138;
+  --color-light-blue:#454545;
+  --color-soft-blue:#e6f6ff;
+  --color-white: white;
+}
+body{
+  Font-family: 'Karla', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-light-blue);
+  padding: 0;
+  margin:0;
+}
+
+.container{
+display:flex;
+}
+
+/*Navigation bar*/
+.navbar{
+display:flex;
+position:fixed;
+min-width: 270px;
+border-top: 1px solid var(--color-darkblue);
+flex-direction: column;
+align-items: center;
+overflow:auto;
+height:100%;
+background-color: var(--color-white);
+}
+.navbar a{
+text-decoration:none;
+font-size: 1.1rem;
+color: var(--color-light-blue);
+}
+.navbar h1{
+  color: var(--color-dark-blue);
+}
+.navbar ul{
+margin: 0;
+padding:0;
+display:flex;
+flex-direction:column;
+width: 100%;
+list-style-type: none;
+border-top: 1px solid var(--color-dark-blue);
+}
+.navbar li{
+text-align: left;
+padding: 10px 30px 10px 30px;
+border-bottom: 1px solid var(--color-dark-blue);  
+}
+
+/*Main*/
+.main-doc{
+  margin-left: 300px;
+  color: var(--color-light-blue);
+  padding:20px;
+  line-height: 1.6rem;
+}
+.main-doc h2{
+  color: var(--color-dark-blue);
+  font-size: 2rem;
+}
+.main-doc p {
+  padding-left: 45px;
+}
+
+.main-doc li{
+list-style-position: inside;
+padding-left:25px;
+  
+}
+
+/*Styling <code> & summary*/
+details > summary {
+  margin-left: 60px;
+  display:flex;
+  padding: 4px;
+  width: 200px;
+  background-color: #eeeeee;
+  border: 1px solid var(--color-dark-blue);
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+}
+code{
+  background:var(--color-soft-blue);
+  display: block;
+  white-space: pre;
+  border: 1px solid var(--color-dark-blue);
+}
+xmp{
+  background:var(--color-soft-blue);
+  white-space: pre-wrap;
+}
+
+/*Responsive Nav menu*/
+@media(max-width:600px){
+  .container{
+  }
+  .navbar{
+  postion:fixed;
+  display:flex;
+  width:100%;
+  height:200px;
+  }
+  .main-doc{
+  margin-top: 300px;
+  margin-left: 0;
+  margin-top: 170px;
+  }
+}

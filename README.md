@@ -13,11 +13,17 @@ Estos apuntes han sido escritos usando Visual Studio Code + Better Comments(plug
 
 ## Proyectos finalizados
 
-1. [Tribute Page](https://codepen.io/eduardado/full/MWKqRpe)
+1. [Tribute Page](https://codepen.io/eduardado/full/MWKNNNo)
 2. [Survery Form](https://codepen.io/eduardado/full/wvMYpgO)
     ![Imgur](https://i.imgur.com/qygsiFd.png)
 3.[Product landing Page](https://codepen.io/eduardado/full/QWyJONO)
 4.[Technical Documentation Page](https://codepen.io/eduardado/full/GRozdor)
+5.[Personal Portfolo Page](https://codepen.io/eduardado/full/abdMRgy)
 
 TODO LIST
 1. Poner el portfolio final en https://eduardado.github.io/
+
+TOTAL HORAS DE DEDICACIÓN
+1. Estudio: 58 pomodoros 
+2. Trabajo: 161 pomodoros
+3. Total: 209 pomodoros -> 100 horas

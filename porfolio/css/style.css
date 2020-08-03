@@ -1,0 +1,263 @@
+
+/*Global*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+:root{
+  --color-red:#be3144;
+  --color-blue:#45567d;
+  --color-dark-grey: #323437;
+  --color-light-grey: #575b61;
+  --color-white: #f0f0f0;
+  --color-black: #000;
+  --color-green: #359c41;
+}
+
+/*I don't use *::before or *::after because I don't use them in this file*/
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Nova Square', sans-serif;
+  color: var(--color-white);
+  margin:0px;
+  padding:0px;
+  background-color: var(--color-dark-grey);
+}
+
+/*Nav bar*/
+.navbar{
+  position:fixed;
+  display:flex;  
+  justify-content:flex-end;
+  width:100%;
+  background-color: var(--color-blue);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.navbar a{
+  padding: 15px;
+  text-decoration:none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+.navbar a:hover{
+  background-color: var(--color-red);
+}
+
+
+/* Welcome Section */
+
+.welcome-section{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  background: 
+    linear-gradient(60deg,var(--color-light-grey), var(--color-black));
+}
+#welcome-section h1, h2{
+  text-align: center;
+}
+#welcome-section h1{
+  font-family: 'Permanent Marker', sans-serif;
+  font-size:4rem;
+  margin-bottom: 2px;
+}
+#welcome-section h2{
+  font-size:2rem;
+  font-style:italic;
+  color: var(--color-blue);
+}
+
+/*---Projects section START----------------------------*/
+.projects{
+  border: 1px solid black;
+  margin:0;
+  padding:0;
+  background-color: var(--color-green);
+  display:flex;
+  flex-direction:column;
+}
+.projects h2{
+  font-size:2rem;
+}
+.projects  .show-all-button a{
+  text-decoration:none;
+  display: inline-block;
+  margin: 30px 0px 40px 0px;
+  padding: 5px 20px 5px 10px;
+  color:inherit;
+  background-color: var(--color-dark-grey);
+  border-radius: 5px;
+  position:relative;
+  box-shadow: 0 5px 0 ;
+  transition: background-color 0.3s ease-out;
+}
+
+.projects .show-all-button a:active{
+  box-shadow:none;
+  top: 5px;
+}
+.projects .show-all-button a:hover{
+  background-color: var(--color-red);
+}
+/*Button ">" animation*/
+.projects .show-all-button a svg{
+  margin-left: 10px;
+  fill: white;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+.projects .show-all-button a:hover svg{
+   transform: translateX(5px);
+}
+
+
+.projects-title{
+ margin-top: 60px;
+ margin-bottom: 0px;
+ padding: 5px 5px 0px 5px;
+}
+.projects hr{
+  padding-top:0px;
+  margin-top: 0px;
+  border-top: 2px solid var(--color-white);
+  width: 95%;
+}
+
+.projects .tile-group{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.projects .tile-group a{
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.project-tile{
+  width: 28%;
+  margin: 15px;
+  padding: 0px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+}
+figure{
+  display:flex;
+  margin:0px;
+  padding:0px;
+  flex-direction:column;
+}
+.snapshot{
+  margin:0px;
+  padding:0px;
+  width:  100%;
+}
+figcaption{
+  padding: 10px 0px 10px 0px;
+  font-size: 18px;
+  width: 100%;
+  max-height: 40px;
+  background-color: var(--color-dark-grey);
+}
+/* Symbols emerging from the dark when hover*/
+figcaption .ghost{
+  color: var(--color-dark-grey);
+  transition: color 0.3s ease-out;
+}
+.project-tile:hover .ghost{
+  color: orange;
+}
+
+
+/*----------Contact---------------------*/
+.contact{
+  border: 1px solid black;
+  width: 100%;
+  margin:0;
+  padding: 0;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark-grey);
+}
+.contact-title{
+  margin-top: 60px;
+}
+
+.contact h2,h3,p{
+  text-align:center;
+}
+
+.contact h2{
+  font-size: 2.2rem;
+}
+
+.contact h3{
+  font-style: italic;
+}
+
+.contact hr{
+  border-top: 3px solid var(--color-red);
+  width: 95%;
+}
+.contact-links{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0px 50px 0px;
+}
+
+.link-box {
+  display:flex;
+  position:relative;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration:none;
+  color:inherit;
+  font-size: 20px;
+  padding: 5px;
+  margin: 20px 15px 10px 15px;
+  width: 130px;
+  transform: translateY (0);
+  transition: transform 0.3s ease-out;
+}
+.link-box:hover{
+  transform: translateY(8px);
+}
+.link-box svg{
+  width: 25px;
+  height: 25px;
+  fill: white;
+  margin-right: 8px;
+}
+
+/*----------Media-------------------*/
+@media(max-width:1000px){
+  .project-tile{
+    width:45%;
+  }
+}
+
+@media(max-width:750px){
+  .project-tile{
+    width:90%;
+  }
+  .navbar{
+    justify-content: center;
+  }
+  
+  .welcome-section h1{
+    font-size: 3rem;
+  }
+}
+

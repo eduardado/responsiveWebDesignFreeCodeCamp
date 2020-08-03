@@ -1,0 +1,224 @@
+/*Global*/
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap');
+
+:root{
+  --main-white: #fff;
+  --main-black: #000;
+  --main-grey: #9c9c9c;
+}
+
+html{
+  box-sizing:border-box;
+}
+
+*{
+margin:0;
+padding:0;
+}
+
+body{
+  font-family: 'Recursive', sans-serif;
+  text-align:center;
+  background-color: var(--main-white);
+  font-weight: 500;
+}
+h1{
+  margin:5px;
+}
+svg{
+  width:50px;
+  heigth: 50px;
+}
+table{
+  font-weight: 600;
+  border-collapse:collapse;
+  padding: 5px;
+  margin: 10px auto 10px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color:var(--main-white);
+  box-shadow: 0px 2px 2px 2px rgba(255,255,255, 0.5);
+}
+tr{
+  border: 1px solid black;
+  margin: 2px;
+  padding: 2px;
+  border: 1px solid black;
+}
+td{
+  border-radius: 20px;
+  border: 1px solid black;
+  margin:5px;
+  padding: 15px;
+  text-align: left;
+}
+a{
+  color:var(--main-white);
+  text-decoration:none;
+}
+
+
+/*Author photo + signature*/
+.title{
+  margin: 40px 10px 40px 10px;
+}
+.img-caption{
+  margin:10px;
+  padding:5px;
+}
+.img-div{
+  width:90%;
+  min-width: 250px;
+  margin: 10px auto 10px auto;
+}
+.img-div img{
+  border-radius: 200px;
+  width:80%;
+  margin: 10px auto 10px auto;
+  max-width: 600px;
+  display:block;
+}
+.img-div .signature{
+  width: 30%;
+  max-width: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*Tribute info*/
+
+/*Awards*/
+
+.tribute-info{
+  width:100%;
+}
+.awards{
+  width:100%;
+}
+.awards-title,  .series-title{
+  width: 40%;
+  border-bottom: 2px solid black;
+  max-width: 640px;
+  margin: 20px auto 30px auto;
+  padding: 5px;  
+}
+.awards-box{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color:var(--main-black);
+  width: 80%;
+  margin: 20px auto 20px auto;
+  border-radius: 30px;
+}
+.award{
+  border: 1px solid var(--main-white);
+  box-shadow: 0px 2px 2px 2px rgba(255,255,255, 0.5);
+  border-radius: 30px;
+  width: 180px;
+  margin: 15px;
+  padding: 5px;
+  display:flex;
+  justify-content:space-evenly;
+}
+.award-logo{
+  width: 30%;
+  border-radius: 20px;
+  border: 1px solid var(--main-white);
+}
+.award p{
+  color: white;
+  font-weight: 700;
+  margin: auto 5px auto 5px;
+}
+
+/*books*/
+
+
+.series{
+  margin: 10px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+}
+.serie{
+  display:flex;
+  flex-direction:column;
+  width: 35%;
+  background-color: var(--main-black);
+  border-radius: 20px;
+  min-width: 320px;
+  margin: 10px;
+}
+.serie-title{
+  border-bottom: 1px solid var(--main-white);
+  width: 50%;
+  max-width: 640px;
+  margin: 10px auto 0px auto;
+  padding: 5px;
+  color: var(--main-white);
+}
+
+.books{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius: 20px;
+  margin: 5px 15px 20px 15px;
+  padding: 30px; 
+}
+.book{
+  box-shadow: 0px 2px 2px 2px rgba(255,255,255, 0.5);
+  display:flex;
+  justify-content:center;
+  background-color: white;
+  color:black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  width: 80%;
+}
+
+/*LINK*/
+.link-title{
+  border-bottom: 1px solid var(--main-black);
+  width: 50%;
+  max-width: 640px;
+  margin: 10px auto 0px auto;
+  padding: 5px;
+  color: var(--main-black);
+}
+
+
+
+.link-box{
+  display:flex;
+  justify-content: center;
+  background-color:var(--main-black);
+  width: 50%;
+  margin: 20px auto 20px auto;
+  border-radius: 30px;
+  min-width: 350px;
+}
+.link-button{
+  box-shadow: 0px 2px 2px 2px rgba(255,255,255, 0.5);
+  display:flex;
+  justify-content:center;
+  background-color: white;
+  color:black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  width: 50%;
+  min-width: 300px;
+}
+.link-box svg{
+  width:20px;
+  height:20px;
+  fill:black;
+  margin-left: 5px;
+}
+
+.credits a{
+  color: var(--main-black);
+}
